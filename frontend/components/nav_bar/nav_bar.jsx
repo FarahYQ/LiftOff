@@ -6,7 +6,7 @@ const NavBar = ({currentUser, logout, login, signup}) => {
     return (
       <nav className='nav-bar'>
         <div className="nav-left">
-          <h1>STOPGOGO</h1>
+          <h1>LIFTOFF</h1>
           <a>Explore</a>
           <a>What We Do</a>
         </div>
@@ -22,7 +22,7 @@ const NavBar = ({currentUser, logout, login, signup}) => {
     return (
       <nav className="nav-bar">
         <div className="nav-left">
-          <h1>STOPGOGO</h1>
+          <h1>LIFTOFF</h1>
           <a>Explore</a>
           <a>What We Do</a>
         </div>
