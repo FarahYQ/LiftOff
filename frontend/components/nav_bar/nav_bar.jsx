@@ -1,24 +1,40 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const NavBar = ({currentUser, logout}) => {
+const NavBar = ({currentUser, logout, login, signup}) => {
   if (!currentUser) {
     return (
-      <nav className='nav-bar-logged-out'>
-        <h1>OutdieGoGo</h1>
-        <Link to='/login'>Login</Link>
-        <br/>
-        <Link to='/signup'>Sign up!</Link>
+      <nav className='nav-bar'>
+        <div className="nav-left">
+          <h1>STOPGOGO</h1>
+          <a>Explore</a>
+          <a>What We Do</a>
+        </div>
+        <div className="nav-right">
+          <div>{login}</div>
+          <br/>
+          <div>{signup}</div>
+
+      </div>
       </nav>
     )
   } else {
     return (
-      <div className="nav-bar-logged-in">
-        <h2 className='login-header'>Welcome, {currentUser.username}</h2>
-        <button className="logout-button" onClick={logout}>Log Out</button>
+      <nav className="nav-bar">
+        <div className="nav-left">
+          <h1>STOPGOGO</h1>
+          <a>Explore</a>
+          <a>What We Do</a>
+        </div>
+        <div className="nav-right">
+          <h2 className='login-header'>{currentUser.username}</h2>
+          <button className="logout-button" onClick={logout}>Log Out</button>
       </div>
+
+      </nav>
     )
   }
 }
+
 
 export default NavBar;

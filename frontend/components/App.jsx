@@ -12,15 +12,18 @@ import LoginFormContainer from
 import SignupFormContainer from
   './session_form/signup_form_container';
   import { AuthRoute } from '../util/route_util';
-
+  import Modal from './modal/modal';
+  // <AuthRoute exact path="/login" component={LoginFormContainer}/>
+  // <AuthRoute exact path="/signup" component={SignupFormContainer}/>
 
 const App = () => (
+
   <div>
+    <Modal />
     <header>
       <NavBarContainer />
     </header>
-    <AuthRoute path="/login" component={LoginFormContainer}/>
-    <AuthRoute path="/signup" component={SignupFormContainer}/>
+
 
   </div>
 );

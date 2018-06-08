@@ -1,4 +1,5 @@
 <% if logged_in? %>
+
   <script type="text/javascript">
     window.currentUser = <%= render(
       "api/users/user.json.jbuilder",
@@ -6,4 +7,6 @@
     ).html_safe %>
   </script>
 <% end %>
+<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Lato|Passion+One" rel="stylesheet">
 <main id="root">Hellooooooo</main>
