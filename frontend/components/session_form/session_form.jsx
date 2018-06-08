@@ -10,6 +10,7 @@ class SessionForm extends React.Component {
       password: ""
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.demoSubmit = this.demoSubmit.bind(this);
   }
 
   componentWillUnmount() {
@@ -27,13 +28,13 @@ class SessionForm extends React.Component {
     this.props.processForm(user).then(this.props.closeModal);
   }
 
-  facebookSubmit(e) {
+  demoSubmit(e) {
     e.preventDefault();
-    this.setState({ username: "facebookUser", email: "fb_user@gmail.com",
-      password: "noPassword"
+    const indiana = Object.assign({}, { username: "IndianaJones",
+      email: "treasure@gmail.com",
+      password: "treasure"
     });
-    const user = Object.assign({}, this.state);
-    this.props.processForm(user);
+    this.props.processForm(indiana).then(this.props.closeModal);
   }
 
   renderErrors() {
@@ -49,14 +50,18 @@ class SessionForm extends React.Component {
   }
 
 
+// <button className="session-x" onClick={this.props.closeModal}>x</button>
+
   render() {
 
     return (
       <div className="session-form-container">
 
         <form onSubmit={(e) => this.handleSubmit(e)} className="session-form-box">
-          <button className="fb-btn">CONTINUE WITH FACEBOOK</button>
-          <div className="session-t1">No posts without your permission</div>
+
+          <button className="fb-btn" onClick={(e) => this.demoSubmit(e)}>DEMO LOGIN</button>
+          <div className="session-t1">   </div>
+          <br/>
           <div className="session-t2">--- Or {this.props.formType.toLowerCase()} with email ---</div>
           <br/>
           <div className="errors">{this.renderErrors()}</div>

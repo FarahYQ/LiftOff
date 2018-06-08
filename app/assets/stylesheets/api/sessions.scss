@@ -10,7 +10,7 @@
   height: 400px;
   min-width: 270px;
   font-family: "Benton Sans","Helvetica","sans-serif";
-  border-radius: 2%;
+  border-radius: 1%;
 }
 
 .session-form-container * {
@@ -62,6 +62,14 @@
   font-size: 13px;
 }
 
+.session-x {
+  cursor: pointer;
+  color: #6a6a6a;
+  font-size: 20px;
+  opacity: 0;
+
+}
+
 .session-t2 {
   text-align: center;
   padding: 5px;
@@ -72,8 +80,9 @@
 .errors {
   color: #FF324B;
   text-align: left;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   font-size: 13px;
+  max-width: 220px;
 }
 
 .session-redirect {
@@ -85,7 +94,7 @@
   font-family: "Benton Sans","Helvetica","sans-serif";
   font-size: 14px;
   color: grey;
-  padding-left: 5px;
+  padding-right: 5px;
 }
 
 .session-redirect-btn {

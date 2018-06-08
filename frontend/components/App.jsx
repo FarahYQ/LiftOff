@@ -13,8 +13,7 @@ import SignupFormContainer from
   './session_form/signup_form_container';
   import { AuthRoute } from '../util/route_util';
   import Modal from './modal/modal';
-  // <AuthRoute exact path="/login" component={LoginFormContainer}/>
-  // <AuthRoute exact path="/signup" component={SignupFormContainer}/>
+import Home from './home';
 
 const App = () => (
 
@@ -23,8 +22,12 @@ const App = () => (
     <header>
       <NavBarContainer />
     </header>
-
-
+    <Home />
+    <Switch>
+      <AuthRoute path='/login' component={LoginFormContainer}/>
+      <AuthRoute path='/signup' component={SignupFormContainer}/>
+    </Switch>
+    <Redirect to='/'/>
   </div>
 );
 

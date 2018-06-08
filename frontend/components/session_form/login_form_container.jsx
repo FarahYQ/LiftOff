@@ -10,7 +10,7 @@ const mapStateToProps = ({ errors }) => {
   return {
     errors: errors.session,
     formType: "LOG IN",
-    navText: <div className="session-redirect-text">New to StopGoGo? </div>
+    navText: <div className="session-redirect-text">New to LiftOff? </div>
   }
 }
 
