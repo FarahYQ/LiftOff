@@ -2,11 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const NavBar = ({currentUser, logout, login, signup}) => {
+  // <h2 className='login-header'>{currentUser.username}</h2>
   if (!currentUser) {
     return (
       <nav className='nav-bar'>
         <div className="nav-left">
-          <h1>LIFTOFF</h1>
+          <Link className="logo" to='/'>LIFTOFF</Link>
           <a>Explore</a>
           <a>What We Do</a>
         </div>
@@ -22,12 +23,13 @@ const NavBar = ({currentUser, logout, login, signup}) => {
     return (
       <nav className="nav-bar">
         <div className="nav-left">
-          <h1>LIFTOFF</h1>
+          <Link className="logo" to='/'>LIFTOFF</Link>
           <a>Explore</a>
           <a>What We Do</a>
         </div>
         <div className="nav-right">
-          <h2 className='login-header'>{currentUser.username}</h2>
+
+          <Link className='login-header' to={`/profile/${currentUser.id}`}>{currentUser.username}</Link>
           <button className="logout-button" onClick={logout}>Log Out</button>
       </div>
 

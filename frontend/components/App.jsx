@@ -14,7 +14,7 @@ import SignupFormContainer from
   import { AuthRoute } from '../util/route_util';
   import Modal from './modal/modal';
 import Home from './home';
-
+import Profile from './profile/profile_container';
 const App = () => (
 
   <div>
@@ -22,11 +22,13 @@ const App = () => (
     <header>
       <NavBarContainer />
     </header>
-    <Home />
+
     <Switch>
-      <AuthRoute path='/login' component={LoginFormContainer}/>
-      <AuthRoute path='/signup' component={SignupFormContainer}/>
-    </Switch>
+      <AuthRoute exact path='/login' component={LoginFormContainer}/>
+      <AuthRoute exact path='/signup' component={SignupFormContainer}/>
+      <Route path='/profile/:userId' component={Profile}/>
+      <Route path='/' component={Home}/>
+  </Switch>
     <Redirect to='/'/>
   </div>
 );
