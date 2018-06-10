@@ -3,7 +3,7 @@
 # Table name: users
 #
 #  id              :bigint(8)        not null, primary key
-#  username        :string           not null
+#  first_name      :string           not null
 #  email           :string           not null
 #  company_name    :string
 #  description     :text
@@ -11,6 +11,7 @@
 #  session_token   :string           not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  last_name       :string           not null
 #
 
 class User < ApplicationRecord
@@ -19,6 +20,8 @@ class User < ApplicationRecord
   validates :password, length: { minimum: 6, allow_nil: true }
 
   before_validation :ensure_session_token
+
+  has_many :campaigns
 
   attr_reader :password
 
