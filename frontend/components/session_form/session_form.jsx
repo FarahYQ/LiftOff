@@ -5,7 +5,8 @@ class SessionForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: "",
+      first_name: "",
+      last_name: "",
       email: "",
       password: ""
     };
@@ -30,11 +31,11 @@ class SessionForm extends React.Component {
 
   demoSubmit(e) {
     e.preventDefault();
-    const indiana = Object.assign({}, { username: "IndianaJones",
+    const indiana = Object.assign({}, { first_name: "Indiana", last_name: "Jones",
       email: "treasure@gmail.com",
       password: "treasure"
     });
-    this.props.processForm(indiana).then(this.props.closeModal);
+    this.props.loginDemo(indiana).then(this.props.closeModal);
   }
 
   renderErrors() {
@@ -65,10 +66,16 @@ class SessionForm extends React.Component {
           <div className="session-t2">--- Or {this.props.formType.toLowerCase()} with email ---</div>
           <br/>
           <div className="errors">{this.renderErrors()}</div>
-        <input type="username"
-            placeholder="Username"
-            value={this.state.username}
-            onChange={this.update('username')}
+        <input type="first_name"
+            placeholder="First Name"
+            value={this.state.first_name}
+            onChange={this.update('first_name')}
+            className="login-input"/>
+          <br/>
+        <input type="last_name"
+            placeholder="Last Name"
+            value={this.state.last_name}
+            onChange={this.update('last_name')}
             className="login-input"/>
           <br/>
         <input type="email"

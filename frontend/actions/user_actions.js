@@ -2,15 +2,15 @@ import * as APIUserUtil from '../util/user_api_util';
 
 export const RECEIVE_USER = 'RECEIVE_USER';
 
-export const receiveUser = user => ({
+export const receiveUser = payload => ({
   type: RECEIVE_USER,
-  user
+  payload
 });
 
 export const requestUser = id => {
   return dispatch => {
     return APIUserUtil.fetchUser(id).then(
-      user => dispatch(receiveUser(user))
+      payload => dispatch(receiveUser(payload))
     )
   }
 }

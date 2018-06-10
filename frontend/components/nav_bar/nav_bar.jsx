@@ -1,42 +1,53 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
-const NavBar = ({currentUser, logout, login, signup}) => {
-  // <h2 className='login-header'>{currentUser.username}</h2>
-  if (!currentUser) {
-    return (
-      <nav className='nav-bar'>
-        <div className="nav-left">
-          <Link className="logo" to='/'>LIFTOFF</Link>
-          <a>Explore</a>
-          <a>What We Do</a>
+class NavBar extends React.Component{
+  constructor(props) {
+    super(props);
+    this.handleLogout = this.handleLogout.bind(this)
+  }
+
+  handleLogout(e) {
+    e.preventDefault();
+    this.props.logout().then(() => this.props.history.push("/"))
+  }
+
+ // ({currentUser, logout, login, signup})
+ render() {
+    if (!this.props.currentUser) {
+      return (
+        <nav className='nav-bar'>
+          <div className="nav-left">
+            <Link className="logo" to='/'>LIFTOFF</Link>
+            <a>Explore</a>
+            <a>What We Do</a>
+          </div>
+          <div className="nav-right">
+            <div>{this.props.login}</div>
+            <br/>
+            <div>{this.props.signup}</div>
         </div>
-        <div className="nav-right">
-          <div>{login}</div>
-          <br/>
-          <div>{signup}</div>
-
-      </div>
-      </nav>
-    )
-  } else {
-    return (
-      <nav className="nav-bar">
-        <div className="nav-left">
-          <Link className="logo" to='/'>LIFTOFF</Link>
-          <a>Explore</a>
-          <a>What We Do</a>
+        </nav>
+      )
+    } else {
+      return (
+        <nav className="nav-bar">
+          <div className="nav-left">
+            <Link className="logo" to='/'>LIFTOFF</Link>
+            <a>Explore</a>
+            <a>What We Do</a>
+          </div>
+          <div className="nav-right">
+            <Link className='login-header' to={`/profile/${this.props.currentUser.id}`}>
+              {this.props.currentUser.first_name} {this.props.currentUser.last_name}
+            </Link>
+            <button className="logout-button" onClick={(e) => this.handleLogout(e)}>Log Out</button>
         </div>
-        <div className="nav-right">
-
-          <Link className='login-header' to={`/profile/${currentUser.id}`}>{currentUser.username}</Link>
-          <button className="logout-button" onClick={logout}>Log Out</button>
-      </div>
-
-      </nav>
-    )
+        </nav>
+      )
+    }
   }
 }
 
 
-export default NavBar;
+export default withRouter(NavBar);
