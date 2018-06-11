@@ -8,6 +8,7 @@ json.user do
     json.contributions_ids []
 end
 
+# hosted : [ {id: , }]
 json.hosted do
   json.array! @user.campaigns do |campaign|
     json.extract! campaign, :id, :title, :small_photo_url, :short_description, :owner_id

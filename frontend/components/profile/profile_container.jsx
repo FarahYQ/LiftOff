@@ -1,16 +1,16 @@
 import Profile from './profile';
 import { connect } from 'react-redux';
-import { fetchUser } from '../../actions/user_actions';
+import { requestUser } from '../../actions/user_actions';
 
-const mapStateToProps = ( {session, entities: {users} }) => {
+const mapStateToProps = ( {session, entities: {users}}, ownProps) => {
   return {
-    currentUser: users[session.id]
+    user: users[ownProps.match.params.userId]
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    getUser: id => dispatch(fetchUser(id))
+    getUser: id => dispatch(requestUser(id))
   };
 };
 

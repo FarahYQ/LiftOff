@@ -8,7 +8,6 @@ class Home extends React.Component {
 
     return (
       <div className="featured">
-        <h1>liftoff</h1>
       </div>
     )
   }
