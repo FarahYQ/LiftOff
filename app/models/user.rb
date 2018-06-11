@@ -21,9 +21,16 @@ class User < ApplicationRecord
 
   before_validation :ensure_session_token
 
-  has_many :campaigns
+  has_many :campaigns,
+  primary_key: :id,
+  foreign_key: :owner_id,
+  class_name: :Campaign
 
   attr_reader :password
+
+  def full_name
+    self.first_name + self.last_name
+  end
 
   def password=(password)
     @password = password

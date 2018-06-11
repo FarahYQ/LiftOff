@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180610045701) do
+ActiveRecord::Schema.define(version: 20180611024834) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,11 +20,12 @@ ActiveRecord::Schema.define(version: 20180610045701) do
     t.text "short_description", null: false
     t.text "long_description", null: false
     t.float "goal", null: false
-    t.datetime "end_date", null: false
     t.string "main_photo_url", null: false
     t.string "small_photo_url", null: false
     t.integer "owner_id", null: false
     t.float "current_sum", default: 0.0
+    t.datetime "start_date", null: false
+    t.integer "duration", null: false
     t.index ["title"], name: "index_campaigns_on_title"
   end
 
