@@ -28,8 +28,9 @@ const App = () => (
       <AuthRoute exact path='/signup' component={SignupFormContainer}/>
       <Route path='/profile/:userId' component={Profile}/>
       <Route path='/' component={Home}/>
+      <Redirect to='/'/>
   </Switch>
-    <Redirect to='/'/>
+
   </div>
 );
 

@@ -1,10 +1,14 @@
 import Profile from './profile';
 import { connect } from 'react-redux';
 import { requestUser } from '../../actions/user_actions';
+import { selectCampaignsFromUser } from '../../reducers/selectors';
 
-const mapStateToProps = ( {session, entities: {users}}, ownProps) => {
+const mapStateToProps = ( {session, entities: {users, campaigns}}, ownProps) => {
+  const userId = parseInt(ownProps.match.params.userId);
+  const camps = selectCampaignsFromUser(campaigns, userId);
   return {
-    user: users[ownProps.match.params.userId]
+    user: users[userId],
+    campaigns: camps
   };
 };
 

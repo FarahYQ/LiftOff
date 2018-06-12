@@ -4,15 +4,15 @@
 
 json.user do
     json.partial! 'api/users/user', user: @user
-    json.campaign_ids []
-    json.contributions_ids []
 end
 
-# hosted : [ {id: , }]
-json.hosted do
-  json.array! @user.campaigns do |campaign|
-    json.extract! campaign, :id, :title, :small_photo_url, :short_description, :owner_id
-    json.owner_name campaign.owner.full_name
+
+json.campaigns do
+ @user.campaigns.each do |campaign|
+   json.set! campaign.id do
+      json.extract! campaign, :id, :title, :small_photo_url, :short_description, :owner_id
+      json.owner_name campaign.owner.full_name
+    end
   end
 end
 

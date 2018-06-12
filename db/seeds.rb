@@ -14,8 +14,10 @@ indiana = { first_name: "Indiana", last_name: "Jones",
 zoologist = { first_name: "Eliza", last_name: "Thornberry",
   email: "animals@gmail.com",
   password:"animals",
-  photo: "https://images.unsplash.com/photo-1517241938558-898c3afe02c8?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=dd6ab130a3a8e78ab7e7ce5550fe519e&auto=format&fit=crop&w=1502&q=80"
+  photo: "https://s19.postimg.cc/5ofeazxxv/Eliza.jpg"
 }
+
+
 elon = {first_name: "Elon", last_name: "Musk",
   email: "boring@gmail.com",
   password:"boring",
