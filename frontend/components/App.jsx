@@ -15,6 +15,7 @@ import SignupFormContainer from
   import Modal from './modal/modal';
 import Home from './home';
 import Profile from './profile/profile_container';
+import ProfileCampaigns from './profile/campaigns';
 const App = () => (
 
   <div>
