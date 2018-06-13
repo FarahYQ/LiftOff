@@ -7,12 +7,12 @@
 #  short_description :text             not null
 #  long_description  :text             not null
 #  goal              :float            not null
-#  duration          :datetime         not null
 #  main_photo_url    :string           not null
 #  small_photo_url   :string           not null
 #  owner_id          :integer          not null
 #  current_sum       :float            default(0.0)
 #  start_date        :datetime         not null
+#  duration          :integer          not null
 #
 
 class Campaign < ApplicationRecord
@@ -25,6 +25,12 @@ class Campaign < ApplicationRecord
   primary_key: :id,
   class_name: :User
 
+  has_many :contributions
+
+  def add_contribution(amount)
+    self.current_sum += amount
+  end
+
 
   def percent_funded
     ((self.current_sum/goal)*100).round
@@ -36,10 +42,6 @@ class Campaign < ApplicationRecord
   def owner_total_campaigns
     self.owner.campaigns.count
   end
-
-
-
-
 
 
 end

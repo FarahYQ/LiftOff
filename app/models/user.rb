@@ -12,6 +12,7 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  last_name       :string           not null
+#  photo           :string
 #
 
 class User < ApplicationRecord
@@ -26,10 +27,12 @@ class User < ApplicationRecord
   foreign_key: :owner_id,
   class_name: :Campaign
 
+  has_many :contributions
+
   attr_reader :password
 
   def full_name
-    self.first_name + self.last_name
+    self.first_name + " " + self.last_name
   end
 
   def password=(password)

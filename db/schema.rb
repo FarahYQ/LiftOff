@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180611175107) do
+ActiveRecord::Schema.define(version: 20180613042459) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,30 @@ ActiveRecord::Schema.define(version: 20180611175107) do
     t.datetime "start_date", null: false
     t.integer "duration", null: false
     t.index ["title"], name: "index_campaigns_on_title"
+  end
+
+  create_table "contributions", force: :cascade do |t|
+    t.float "amount", null: false
+    t.integer "user_id", null: false
+    t.integer "campaign_id", null: false
+    t.string "visibility", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["campaign_id"], name: "index_contributions_on_campaign_id"
+    t.index ["user_id"], name: "index_contributions_on_user_id"
+  end
+
+  create_table "rewards", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "campaign_id", null: false
+    t.text "description", null: false
+    t.float "contribution_min", null: false
+    t.integer "inventory", null: false
+    t.integer "num_claimed", default: 0
+    t.datetime "estimated_delivery", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["campaign_id"], name: "index_rewards_on_campaign_id"
   end
 
   create_table "users", force: :cascade do |t|

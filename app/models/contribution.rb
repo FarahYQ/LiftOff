@@ -11,14 +11,11 @@
 #  updated_at  :datetime         not null
 #
 
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+class Contribution < ApplicationRecord
+  validates :amount, :user_id, :campaign_id, :visibility, presence: true
+  validates :visilibity, inclusion: { in: ["public", "anonymous"]}
+  validates :amount, numericality: { greater_than: 0 }
 
-# This model initially had no columns defined. If you add columns to the
-# model remove the '{}' from the fixture names and add the columns immediately
-# below each fixture, per the syntax in the comments below
-#
-one: {}
-# column: value
-#
-two: {}
-# column: value
+  belongs_to :user
+  belongs_to :campaign
+end
