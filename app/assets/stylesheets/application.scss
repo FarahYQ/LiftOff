@@ -10,75 +10,13 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require reset
  *= require_self
- *= require api/sessions
- *= require api/home
- *= require api/profile
  */
-.nav-bar {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  height: 9vh;
+// CSS Reset file
+@import "reset.css";
 
-}
+// CSS Grid
+// @import "grid.scss";
 
- .nav-left {
-   display: flex;
-   flex-direction: row;
-   height: 100%;
-   align-items: center;
- }
-
- .nav-right {
-   display: flex;
-   flex-direction: row;
-   font-family: Lato;
-   align-items: center;
-   height: 100%;
- }
-
-.nav-bar button, a {
- font-family: Lato;
- font-weight: bold;
- text-align: center;
- height: 70px;
- line-height: 70px;
- text-align: center;
- padding: 10px;
- font-weight: bold;
-}
-.logo {
-  color: #FF0066;
-  font-family: Passion One;
-  font-size: 35px;
-  margin-right: 10px;
-  margin-left: 10px;
-}
-
-.nav-right-link {
-  font-family: Lato;
-  padding: 10px;
-  font-weight: bold;
-  color: black;
-}
-
-
-.modal-background {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.7);
-  z-index: 10;
-}
-
-.modal-child {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
+// All other component stylesheets
+@import "components/*";

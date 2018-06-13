@@ -38,6 +38,8 @@ gem 'pry-rails'
 gem 'jquery-rails'
 gem 'better_errors'
 gem 'binding_of_caller'
+gem 'faker'
+gem 'paperclip', '~> 4.2'
 
 
 group :development, :test do

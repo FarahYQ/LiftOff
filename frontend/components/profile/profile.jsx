@@ -2,32 +2,27 @@ import React from 'react';
 import { Link , withRouter, Route } from 'react-router-dom';
 import Campaigns from './campaigns';
 import ProfileDetail from './profile_detail';
-// src="https://i.pinimg.com/564x/9e/1a/c2/9e1ac2c5d9e21076dd5f4566730840d0.jpg"/>
-// {this.props.campaigns.map( campaign => (<li>{`${campaign}`}</li>)}
+
 class Profile extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      displayedComponent: "ProfileDetail"
+    };
+    this.showComponent = this.showComponent.bind(this);
   }
 
   componentDidMount() {
     this.props.getUser(this.props.match.params.userId)
   }
 
-  getGalleryItem() {
-    const collectionId = 1522732;
-    const numImagesAvailable = 100;
-
-    const randIndex = Math.floor(Math.random()*numImagesAvailable);
-    let photo_url = `https://source.unsplash.com/collection/${collectionId}/480x480/?sig=${randIndex}`;
-    return photo_url;
+  componentWillReceiveProps(nextProps) {
+    if (this.props.match.params.userId !== nextProps.match.params.userId)
+      this.props.getUser(this.props.match.params.userId)
   }
 
-  changeProfileView(view) {
-    return (e) => {
-      if (!this.props.location.pathname === `/profile/${view}`) {
-        this.props.history.push(`/profile/${view}`)
-      }
-    }
+  showComponent(componentName) {
+    this.setState({displayedComponent: componentName});
   }
 
 
@@ -36,19 +31,20 @@ class Profile extends React.Component {
     if (!user) {
       return ( <div>loading...</div> )
     }
-    let componentView = ProfileDetail;
-    let pathView = `/profile/${user.id}`;
-    if (this.props.location.pathname === `/profile/${user.id}/campaigns`) {
-      componentView = Campaigns;
-      pathView = `/profile/:userId/campaigns`;
+
+    const components = {
+      "ProfileDetail": <ProfileDetail user={user} campaigns={this.props.campaigns}/>,
+    "Campaigns": <Campaigns campaigns={this.props.campaigns}/>
     }
+
     return (
       <div>
         <div>
-            <button className="profile-link" onClick={this.changeProfileView(`${user.id}`)}>Profile</button>
-            <button className="profile-campaign-link" onClick={this.changeProfileView(`${user.id}/campaigns`)}>Campaigns</button>
-            <img className="profile-pic" src={`${user.photo}`}/>
-            <Route path={`${pathView}`} component={componentView}/>
+            <div className="profile-name">{`${user.first_name} ${user.last_name}`}</div>
+            <button className="profile-btn" onClick={() => this.showComponent("ProfileDetail")}>Profile</button>
+            <button className="profile-campaign-btn" onClick={() => this.showComponent("Campaigns")}>Campaigns</button>
+
+            <div className="profile-sub">{components[this.state.displayedComponent]}</div>
         </div>
 
 
