@@ -1,7 +1,7 @@
 .profile-pic {
 
   padding: 20px;
-  max-height: 300px;
+  max-height: 460px;
   max-width: auto;
 }
 
@@ -11,18 +11,14 @@
   max-width: auto;
 }
 
-.profile-thumbnail {
-  border-radius: 50%;
-  max-height: 70px;
-  width: 80px;
-}
 
-.profile-view {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-areas:
-  ". profile-name . . . ."
-  ". profile-btn profile-campaign-btn . . ."
-  ". profile-sub profile-sub profile-sub profile-sub profile-sub  ."
-}
+
+// .profile-view {
+//   display: grid;
+//   grid-template-columns: repeat(6, 1fr);
+//   grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+//   grid-template-areas:
+//   ". profile-name . . . ."
+//   ". profile-btn profile-campaign-btn . . ."
+//   ". profile-sub profile-sub profile-sub profile-sub profile-sub  ."
+// }

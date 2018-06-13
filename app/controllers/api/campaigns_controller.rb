@@ -22,26 +22,26 @@ class Api::CampaignsController < ApplicationController
   end
 
   def update
-    @camp = Campaign.find_by(id: params[:campaign][:id])
-    unless @camp
+    @campaign = Campaign.find_by(id: params[:campaign][:id])
+    unless @campaign
       render json: "Cannot find that campaign", status: 404
       return
     end
 
-    unless logged_in? && current_user.id == @camp.owner_id
+    unless logged_in? && current_user.id == @campaign.owner_id
       render json: "unauthorized access", status: 401
       return
     end
 
-    if @camp.update(campaign_params)
+    if @campaign.update(campaign_params)
       render :show
     else
-      render json: @camp.errors, status: 422
+      render json: @campaign.errors, status: 422
     end
   end
 
   def show
-    @campaign = Campaign.find_by(id: params[:id])
+    @campaign = Campaign.find(params[:id])
     if @campaign
       render :show
     else
@@ -53,7 +53,7 @@ class Api::CampaignsController < ApplicationController
   def destroy
     @campaign = Campaign.find(params[:id])
     @campaign.destroy
-    render :index
+    render :show
   end
 
   private

@@ -17,8 +17,10 @@ class Profile extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.props.match.params.userId !== nextProps.match.params.userId)
-      this.props.getUser(this.props.match.params.userId)
+    if (this.props.match.params.userId !== nextProps.match.params.userId) {
+      this.props.getUser(nextProps.match.params.userId)
+    }
+
   }
 
   showComponent(componentName) {

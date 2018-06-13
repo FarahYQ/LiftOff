@@ -16,6 +16,8 @@ import SignupFormContainer from
 import Home from './home';
 import Profile from './profile/profile_container';
 import ProfileCampaigns from './profile/campaigns';
+import CampaignContainer from './campaign/campaign_container';
+
 const App = () => (
 
   <div>
@@ -27,6 +29,7 @@ const App = () => (
     <Switch>
       <AuthRoute exact path='/login' component={LoginFormContainer}/>
       <AuthRoute exact path='/signup' component={SignupFormContainer}/>
+      <Route exact path='/campaigns/:campaignId' component={CampaignContainer}/>
       <Route path='/profile/:userId' component={Profile}/>
       <Route path='/' component={Home}/>
       <Redirect to='/'/>

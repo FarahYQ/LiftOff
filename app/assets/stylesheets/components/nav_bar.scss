@@ -4,7 +4,6 @@
   justify-content: space-between;
   align-items: center;
   height: 9vh;
-
 }
 
  .nav-left {
@@ -12,6 +11,9 @@
    flex-direction: row;
    height: 100%;
    align-items: center;
+   .Link, a {
+     padding: 10px;
+   }
  }
 
  .nav-right {
@@ -22,7 +24,7 @@
    height: 100%;
  }
 
-.nav-bar button, a {
+.nav-bar button {
  font-family: Lato;
  font-weight: bold;
  text-align: center;

@@ -1,3 +1,99 @@
 // Place all the styles related to the api/campaigns controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// .campaign-mp {
+//   max-width: 65%;
+// }
+
+.camp-index-item {
+
+  max-width: 275px;
+  max-height: 520px;
+  border: 1px solid #dddddd;
+  background: #ffffff;
+  border-radius: 2px;
+  cursor: pointer;
+  justify-content: center;
+  font-family: 'Libre Franklin', sans-serif;
+
+  .campaign-index-item-img {
+    width: 100%;
+    display: flex;
+    // justify-content: left;
+    overflow: hidden;
+    img{
+      height: 100%;
+    }
+  }
+  // .f-type {
+  //   padding-left: 8px;
+  //   justify-content: left
+  // }
+  .tile-details {
+    margin: 8px;
+    font-size: 13px;
+    .f_and_heart {
+      display: flex;
+      justify-content: space-between;
+      .f-type {
+        color: #088366;
+        font-weight: bold;
+      }
+    }
+    .tile-info {
+      line-height: 15px;
+      justify-content: left;
+        .tile-title {
+          padding-top: 5px;
+          padding-bottom: 5px;
+          font-size: 17px;
+          font-weight: bold;
+        }
+        .tile-sd {
+          height: 70px;
+          overflow: hidden;
+        }
+    }
+
+    .tile-stats {
+      line-height: 15px;
+      .tile-stats-info {
+        display: flex;
+        justify-content: space-between;
+        .num {
+          font-size: 16px;
+          font-weight: bold;
+        }
+      }
+      .tile-bar{
+        height: 7px;
+        background-color:#dddddd;
+        .tile-bar-done {
+          height: 7px;
+          background-color: #088366;
+        }
+      }
+    }
+  }
+
+
+
+
+}
+
+.camp-index-item:hover {
+  border: 1px solid #777;
+}
+
+// .camp-index-item {
+//   padding: 10px;
+//   text-align:left;
+// }
+
+.campaigns-index {
+  display: grid;
+  margin: 50px;
+  grid-gap: 30px 50px;
+  grid-template-columns: auto auto auto;
+}

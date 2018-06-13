@@ -28,6 +28,7 @@ class User < ApplicationRecord
   class_name: :Campaign
 
   has_many :contributions
+  has_many :rewards
 
   attr_reader :password
 

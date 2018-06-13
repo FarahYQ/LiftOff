@@ -15,7 +15,7 @@
 #
 
 class Reward < ApplicationRecord
-
+  belongs_to :campaign
 
 
   def enough_inventory?

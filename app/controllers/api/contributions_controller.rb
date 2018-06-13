@@ -13,6 +13,7 @@ class Api::ContributionsController < ApplicationController
     end
 
     if @contribution.save
+      @campaign = @contribution.campaign
       @contribution.campaign.add_contribution(@contribution.amount)
       render "api/campaigns/#{@contribution.campaign_id}"
     else

@@ -1,3 +1,5 @@
+
+
 export const selectCampaignsFromUser = (campaigns, userId) => {
   let result = [];
   for ( let id in campaigns ) {
@@ -5,3 +7,12 @@ export const selectCampaignsFromUser = (campaigns, userId) => {
   }
   return result;
 }
+
+export const selectAllCampaigns = state => Object.values(state.entities.campaigns);
+
+// export const selectCampaignsFromFilter = filter => {
+//   let result = [];
+//   for (let id in campaigns) {
+//     if (filter.type === '')
+//   }
+// }

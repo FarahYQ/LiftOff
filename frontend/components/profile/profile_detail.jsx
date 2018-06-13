@@ -12,7 +12,6 @@ class ProfileDetail extends React.Component {
 
 
         <div className="about">
-          <img className="profile-thumbnail" src={`${user.photo}`}/>
           <div className="about-me">About Me</div>
           <div className="about-count">{`${this.props.campaigns.length}`}</div> <div className="about-type">Campaign</div>
         </div>

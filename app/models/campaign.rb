@@ -26,6 +26,7 @@ class Campaign < ApplicationRecord
   class_name: :User
 
   has_many :contributions
+  has_many :rewards
 
   def add_contribution(amount)
     self.current_sum += amount
@@ -36,11 +37,12 @@ class Campaign < ApplicationRecord
     ((self.current_sum/goal)*100).round
   end
 
-  def contributors_count
+  def backers_count
+    self.contributions.length
   end
 
   def owner_total_campaigns
-    self.owner.campaigns.count
+    self.owner.campaigns.length
   end
 
 
