@@ -1,0 +1,127 @@
+
+.campaign-main {
+  margin: 3% 7% 7% 7%;
+  font-family: lato;
+
+  .q1-q2 {
+    padding-top: 4px;
+    display: flex;
+    justify-content: space-between;
+    .q1{
+      width: 53vw;
+      // border: 1px solid black;
+      .campaign-mp {
+        width: 100%;
+      }
+    }
+    .q2 {
+      // border: 1px solid red;
+      // margin-left: 20px;
+      padding: 0 12px 0 12px;
+      width: 46vw;
+      }
+      .q2 * {
+        padding: 5px;
+      }
+      .funding {
+        color: #088366;
+      }
+      .campaign-title {
+        font-size: 17px;
+        font-weight: bold;
+      }
+      .tagline {
+        font-size: 15px;
+        color: grey;
+      }
+      .project-owner {
+        font-size: 12px;
+        color: grey;
+        padding-bottom: 0px;
+      }
+      .owner-link {
+        font-size: 13px;
+        font-weight: bold;
+      }
+      .sum {
+        display: flex;
+        justify-content: space-between;
+      }
+      .tile-bar{
+        height: 10px;
+        background-color:#dddddd;
+        .tile-bar-done {
+          height: 10px;
+          background-color: #088366;
+        }
+      }
+      .funded-deets {
+        display: flex;
+        justify-content: space-between;
+      }
+      .backit-row {
+        display: flex;
+        justify-content: space-between;
+        .backit{
+          background-color: #EB1478;
+          height: 20px;
+          width: 100px;
+          color: white;
+          font-size: 14px;
+        }
+        .icons {
+          display: flex;
+          justify-content: space-around;
+          color: grey;
+        }
+      }
+    }
+
+    // q3-a4
+    .q3-q4 {
+      display: flex;
+      justify-content: space-between;
+      .q3 {
+        .campaign-overview-title {
+          color: grey;
+          border-bottom: 1px solid #dddddd;
+        }
+        width: 53%;
+        .overview-details {
+          padding-top: 10px;
+          padding-bottom: 15px;
+          display: flex;
+          justify-content: space-between;
+          .campaign-sp {
+
+            width: 46%;
+            max-height: 200px;
+
+          }
+          .overview-long-description {
+            font-size: 13px;
+            width: 50%;
+            .campaign-stage {
+              padding-top: 10px;
+              font-size: 14px;
+
+            }
+          }
+
+        }
+        .campaign-extras {
+          display: flex;
+          justify-content: space-between;
+          color: grey;
+        }
+      }
+      .q4 {
+        width: 30vw;
+        border: 1px solid black;
+        height: 1000px;
+      }
+    }
+}
+
+
+// #EB1478

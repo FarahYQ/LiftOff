@@ -3,8 +3,9 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  height: 9vh;
+  height: 7vh;
   font-family: Lato;
+  border-bottom: 1px solid #dddddd;
 }
 
  .nav-left {
@@ -36,7 +37,7 @@
  font-weight: bold;
 }
 .logo {
-  color: #FF0066;
+  color: #EB1478;
   font-family: Passion One;
   font-size: 35px;
   margin-right: 10px;
