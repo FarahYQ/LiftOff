@@ -11,7 +11,8 @@ const CampaignIndexItem = ( { campaign }) => {
             <img className="campaign-index-item-img" src={campaign.main_photo_url}/>
             <div className="tile-details">
               <div className="f_and_heart">
-                <div className="f-type">Funding</div> <div className="heart"></div>
+                <div className="f-type">Funding</div>
+                <div className="heart"><i className="far fa-heart" style={{color:"grey"}}></i></div>
               </div>
               <div className="tile-info">
                 <p className="tile-title">{campaign.title}</p>

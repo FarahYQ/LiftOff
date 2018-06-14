@@ -4,9 +4,11 @@ import { fetchCampaign } from '../../actions/campaign_actions';
 import { requestUser } from '../../actions/user_actions';
 
 const mapStateToProps = (state, ownProps) => {
-
+  let camp = state.entities.campaigns[ownProps.match.params.campaignId] ||
+    {owner_id: 10};
   return {
-    campaign: state.entities.campaigns[ownProps.match.params.campaignId]
+    campaign: camp,
+    owner: state.entities.users[camp.owner_id] || {last_name: "Raul", first_name: ""}
   };
 };
 

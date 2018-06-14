@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import CampaignIndexContainer from './campaign/campaign_index_container';
+import CampaignIndexContainer from '../campaign/campaign_index_container';
+import HomeSliderContainer from './home_slider_container';
 
 class Home extends React.Component {
 
@@ -9,7 +10,7 @@ class Home extends React.Component {
 
     return (
       <div className="featured">
-        
+        <HomeSliderContainer />
         <CampaignIndexContainer />
       </div>
     )

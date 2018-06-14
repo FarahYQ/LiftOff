@@ -9,6 +9,7 @@ class Api::ContributionsController < ApplicationController
     @contribution = current_user.contributions.new(contribution_params)
     if !contribution.reward.nil?
       if !contribution.reward.enough_inventory?
+        UserReward.new(current_user.id )
       end
     end
 

@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     end
     resources :contributions, only: [:create]
     resources :rewards, only: [:update, :destroy]
-
+    get 'firstfive', to: 'features#firstfive'
   end
 
   root to: 'static_pages#root'

@@ -3,3 +3,51 @@
 //   height: 350px;
 //   background-image: url("https://s19.postimg.cc/eb2f11soj/janfillem-623483-unsplash.jpg");
 // }
+
+
+
+
+.slider {
+  // display: inline-block;
+  position: relative;
+  .current-slider-photo {
+    width: 100%;
+    height: 468px;
+    font-family: Lato;
+  }
+
+  .featured {
+    width: 100px;
+    position: absolute;
+    bottom: 180px;
+    left: 50px;
+    font-family: Lato;
+    color: #ffffff;
+    font-size: 18px;
+    text-decoration: underline;
+  }
+  .featured-text {
+    width: 275px;
+    position: absolute;
+    top: 310px;
+    left: 50px;
+    font-family: Lato;
+    color: #ffffff;
+    font-size: 14px;
+  }
+
+  .slider-arrows {
+    width: 100px;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 50px;
+    left: 50px;
+    color: #ffffff;
+    font-size: 40px;
+    .left-slider-arrow {
+      padding-right: 15px;
+    }
+  }
+
+}

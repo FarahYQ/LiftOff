@@ -13,7 +13,7 @@ import SignupFormContainer from
   './session_form/signup_form_container';
   import { AuthRoute } from '../util/route_util';
   import Modal from './modal/modal';
-import Home from './home';
+import Home from './home/home';
 import Profile from './profile/profile_container';
 import ProfileCampaigns from './profile/campaigns';
 import CampaignContainer from './campaign/campaign_container';
