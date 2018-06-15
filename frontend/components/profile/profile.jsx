@@ -56,8 +56,6 @@ class Profile extends React.Component {
     "Campaigns": <Campaigns campaigns={this.props.campaigns} user={user}/>
     }
 
-
-
     return (
       <div>
         <div className="profile">
@@ -67,8 +65,6 @@ class Profile extends React.Component {
             {this.showButtons()}
             <div className="profile-sub">{components[this.state.displayedComponent]}</div>
         </div>
-
-
       </div>
     )
   }

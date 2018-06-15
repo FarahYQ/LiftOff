@@ -18,20 +18,20 @@ class StartCampaign extends React.Component{
     return (e)=>(this.setState({[field]:e.target.value}))
   }
 
+  isValid(){
+    if (this.state.goal < 500) return false;
+    return true;
+  }
+
   submitForm(e) {
     e.preventDefault();
     this.props.startCamp(this.state)
     this.props.history.push(`/create-campaign`)
   }
 
-  isValid(){
-    if (this.state.goal_amount < 500) return false;
-    return true;
-  }
   render(){
 
     const active = this.isValid();
-
     return(
       <div className="start-campaign-start">
         <div className="start-campaign-title">Start a campaign</div>

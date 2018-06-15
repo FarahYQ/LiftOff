@@ -23,17 +23,12 @@ class CreateCampaign extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    let newInfo = Object.assign({}, {goal: this.state.goal, title: this.state.title,
-      long_description: this.state.long_description, short_description: this.state.short_description,
-      duration: this.state.duration,
-      main_photo_url: "https://s3-us-west-1.amazonaws.com/liftoff-go-photos/campaign-pics/campaigns_tech4-small.jpg",
-      small_photo_url: "https://s3-us-west-1.amazonaws.com/liftoff-go-photos/campaign-pics/campaigns_art1-small.jpg"});
     this.props.makeCamp(newInfo).then( payload => {
-      console.log(payload)
-      this.props.history.push(`/campaigns/${Object.keys(payload.payload.campaign)[0]}`);
+      this.props.history.push(`/campaigns/${Object.keys(payload.campaign)[0]}`);
     }
   )
 }
+
   render() {
     return (
       <div className="campaign-form">
