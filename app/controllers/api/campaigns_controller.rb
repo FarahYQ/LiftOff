@@ -7,11 +7,8 @@ class Api::CampaignsController < ApplicationController
     end
     @campaign = Campaign.new(campaign_params)
     @campaign.owner_id = current_user.id
-    # @camp.main_photo_url = "https://s3-us-west-1.amazonaws.com/liftoff-go-photos/campaign-pics/campaigns_tech4.jpg"
-    # @camp.small_photo_url = "https://s3-us-west-1.amazonaws.com/liftoff-go-photos/campaign-pics/campaigns_tech4-small.jpg"
     @campaign.goal = @campaign.goal.to_i
     @campaign.start_date = Date.today
-    # @camp.end_date = (@camp.start_date + @camp.duration).to_s
     if @campaign.save!
       render :show
     else
@@ -29,12 +26,10 @@ class Api::CampaignsController < ApplicationController
       render json: "Cannot find that campaign", status: 404
       return
     end
-
     unless logged_in? && current_user.id == @campaign.owner_id
       render json: "unauthorized access", status: 401
       return
     end
-
     if @campaign.update(campaign_params)
       render :show
     else
@@ -49,7 +44,6 @@ class Api::CampaignsController < ApplicationController
     else
       render json: "Cannot find that campaign", status: 404
     end
-
   end
 
   def destroy

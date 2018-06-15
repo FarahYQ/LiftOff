@@ -28,14 +28,12 @@ class CreateCampaign extends React.Component {
       duration: this.state.duration,
       main_photo_url: "https://s3-us-west-1.amazonaws.com/liftoff-go-photos/campaign-pics/campaigns_tech4-small.jpg",
       small_photo_url: "https://s3-us-west-1.amazonaws.com/liftoff-go-photos/campaign-pics/campaigns_art1-small.jpg"});
-    // let newCamp = merge({}, this.state, newInfo);
-    // console.log(newInfo);
-    this.props.makeCamp(newInfo).then(payload => {
-      console.log(payload);
-      return this.props.history.push(`/campaigns/${Object.keys(payload.campaign)[0]}`);
-    })
-  }
-
+    this.props.makeCamp(newInfo).then( payload => {
+      console.log(payload)
+      this.props.history.push(`/campaigns/${Object.keys(payload.payload.campaign)[0]}`);
+    }
+  )
+}
   render() {
     return (
       <div className="campaign-form">

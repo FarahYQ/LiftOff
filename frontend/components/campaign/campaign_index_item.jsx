@@ -2,7 +2,6 @@ import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 
 const CampaignIndexItem = ( { campaign }) => {
-  console.log(campaign.title);
   return (
     <div>
       <li className="camp-index-item">

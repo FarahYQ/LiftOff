@@ -9,10 +9,3 @@ export const selectCampaignsFromUser = (campaigns, userId) => {
 }
 
 export const selectAllCampaigns = state => Object.values(state.entities.campaigns);
-
-// export const selectCampaignsFromFilter = filter => {
-//   let result = [];
-//   for (let id in campaigns) {
-//     if (filter.type === '')
-//   }
-// }

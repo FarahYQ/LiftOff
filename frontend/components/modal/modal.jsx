@@ -21,7 +21,6 @@ const Modal = ({modal, closeModal}) => {
   }
 
   const handleKeyPress = (event) => {
-    console.log("try to escape");
   if(event.key == 'Escape'){
     console.log('enter press here! ')
     }
