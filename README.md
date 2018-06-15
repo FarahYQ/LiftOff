@@ -1,5 +1,7 @@
 # LiftOff
 
+Live Demo: [https://liftoff-go.herokuapp.com/#/]
+
 LiftOff is a website to crowdfund great projects and causes. With this website, you can turn an indea into reality.
 
 You can create a campaign of your own or contribute to ones that you believe in. 
