@@ -15,6 +15,20 @@ The users table stores all profile and user data with password digests and sessi
 
 Create a campaign and a view page will show all the information to users. It will keep track of including contributions, timeline, and how much your campaign needs to meet its goal!
 
+```   
+update(field){
+    return (e)=>(this.setState({[field]:e.target.value}))
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    this.props.makeCamp(newInfo).then( payload => {
+      this.props.history.push(`/campaigns/${Object.keys(payload.campaign)[0]}`);
+    }
+  )
+}
+```
+
 All campaign information is stored in one table in the database. A user foreign key associates the campaign to its creator. 
 
 ### Contributions
