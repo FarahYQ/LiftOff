@@ -14,12 +14,12 @@ const mapDispatchToProps = dispatch => {
   return {
     logout: () => dispatch(logout()),
     login: (
-      <button onClick={() => dispatch(openModal('login'))}>
+      <button className="nav-session-btn" onClick={() => dispatch(openModal('login'))}>
         Log In
       </button>
     ),
     signup: (
-      <button onClick={() => dispatch(openModal('signup'))}>
+      <button className="nav-session-btn" onClick={() => dispatch(openModal('signup'))}>
         Sign Up
       </button>
     )

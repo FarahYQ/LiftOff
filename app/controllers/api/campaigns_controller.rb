@@ -5,17 +5,17 @@ class Api::CampaignsController < ApplicationController
       render json: "Login to create a campaign", status: 401
       return
     end
-
-    @camp = Campaign.new(campaign_params)
-    # @camp.owner_id = current_user.id
+    @campaign = Campaign.new(campaign_params)
+    @campaign.owner_id = current_user.id
     # @camp.main_photo_url = "https://s3-us-west-1.amazonaws.com/liftoff-go-photos/campaign-pics/campaigns_tech4.jpg"
     # @camp.small_photo_url = "https://s3-us-west-1.amazonaws.com/liftoff-go-photos/campaign-pics/campaigns_tech4-small.jpg"
-    @camp.goal = parseInt(@camp.goal)
-    @camp.end_date = Time.now + 10.days
-    if @camp.save
+    @campaign.goal = @campaign.goal.to_i
+    @campaign.start_date = Date.today
+    # @camp.end_date = (@camp.start_date + @camp.duration).to_s
+    if @campaign.save!
       render :show
     else
-      render json: @camp.errors, status: 422
+      render json: @campaign.errors, status: 422
     end
   end
 
@@ -61,7 +61,8 @@ class Api::CampaignsController < ApplicationController
   private
   def campaign_params
     params.require(:campaign).permit(:title, :short_description,
-      :long_description, :goal, :duration, :end_date)
+      :long_description, :goal, :duration, :end_date, :main_photo_url, :small_photo_url,
+      :end_date)
   end
 
 end

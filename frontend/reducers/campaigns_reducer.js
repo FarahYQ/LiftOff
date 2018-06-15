@@ -13,7 +13,7 @@ const campaignsReducer = (state = {}, action) => {
     case RECEIVE_CAMPAIGN:
       return merge({}, state, action.payload.campaign)
     case CREATE_CAMPAIGN:
-      return merge({}, state, action.campaign)
+      return merge({}, state, action.payload.campaign)
     case REMOVE_CAMPAIGN:
       let newState = merge({}, state);
       delete newState[action.campaignId];

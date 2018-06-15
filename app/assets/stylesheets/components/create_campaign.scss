@@ -90,6 +90,7 @@
     justify-content: flex-start;
     font-size: 20px;
     .title {
+      padding-right: 5px;
     }
     .basics {
       color: purple;
@@ -115,7 +116,7 @@ input {
   text-indent: 10px;
   letter-spacing: normal;
   text-rendering: auto;
-  width: 85%
+  width: 85%;
   // margin-bottom: 25px;
 }
 .start-camp-duration {

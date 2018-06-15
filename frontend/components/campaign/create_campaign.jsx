@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeCampaign } from '../../actions/campaign_actions';
 import { connect  } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import merge from 'lodash/merge';
 
 class CreateCampaign extends React.Component {
@@ -24,12 +25,15 @@ class CreateCampaign extends React.Component {
     e.preventDefault();
     let newInfo = Object.assign({}, {goal: this.state.goal, title: this.state.title,
       long_description: this.state.long_description, short_description: this.state.short_description,
-      start_date: Date.now(), owner_id: this.props.ownerId,
+      duration: this.state.duration,
       main_photo_url: "https://s3-us-west-1.amazonaws.com/liftoff-go-photos/campaign-pics/campaigns_tech4-small.jpg",
       small_photo_url: "https://s3-us-west-1.amazonaws.com/liftoff-go-photos/campaign-pics/campaigns_art1-small.jpg"});
-    let newCamp = merge({}, this.state, newInfo);
-    console.log(newCamp);
-    this.props.makeCamp(newInfo);
+    // let newCamp = merge({}, this.state, newInfo);
+    // console.log(newInfo);
+    this.props.makeCamp(newInfo).then(payload => {
+      console.log(payload);
+      return this.props.history.push(`/campaigns/${Object.keys(payload.campaign)[0]}`);
+    })
   }
 
   render() {
@@ -37,7 +41,7 @@ class CreateCampaign extends React.Component {
       <div className="campaign-form">
         <div className="title-row">
           <div className="title">Campaign / </div>
-          <div className="basics">Basics</div>
+          <div className="basics"> Basics</div>
         </div>
         <div className="basics-section">Basics</div>
         <div className="basics-instr">Make a good first impression: introduce your campaign objectives
@@ -102,4 +106,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CreateCampaign);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CreateCampaign));

@@ -45,6 +45,9 @@
         font-weight: bold;
         // padding-bottom: 20px;
       }
+      .owner-link:hover {
+        color: #EB1478;
+      }
       .sum {
         display: flex;
         justify-content: space-between;
@@ -107,6 +110,7 @@
           padding-bottom: 15px;
           display: flex;
           justify-content: space-between;
+          min-height: 200px;
           .campaign-sp-container {
             position: relative;
             // width: 46%;
@@ -119,6 +123,7 @@
           }
           .overview-long-description {
             font-size: 13px;
+            word-break: break-all;
             width: 50%;
             .campaign-stage {
               padding-top: 10px;

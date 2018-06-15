@@ -26,6 +26,12 @@
    height: 100%;
  }
 
+ .nav-session-btn * {
+   font-weight: bold;
+   line-height: 70px;
+   height: 70px;
+ }
+
 .nav-bar * {
  font-family: Lato;
  font-weight: bold;
@@ -47,8 +53,8 @@
 .nav-right-link {
   font-family: Lato;
   padding: 10px;
-  color: black;
 }
+
 
 
 .modal-background {

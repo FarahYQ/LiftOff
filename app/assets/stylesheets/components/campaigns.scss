@@ -26,10 +26,7 @@
       height: 100%;
     }
   }
-  // .f-type {
-  //   padding-left: 8px;
-  //   justify-content: left
-  // }
+
   .tile-details {
     margin: 8px;
     font-size: 13px;
@@ -77,7 +74,6 @@
     }
   }
 
-
 }
 
 .camp-index-item:hover {
@@ -87,6 +83,6 @@
 .campaigns-index {
   display: grid;
   margin: 50px;
-  grid-gap: 30px 50px;
-  grid-template-columns: auto auto auto;
+  grid-gap: 30px 30px;
+  grid-template-columns: auto auto auto auto;
 }

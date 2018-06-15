@@ -16,7 +16,7 @@ export const createCampaign = campaign => {
   return $.ajax({
     method: 'POST',
     url: 'api/campaigns',
-    data: campaign
+    data: {campaign}
   })
 };
 
@@ -24,7 +24,7 @@ export const updateCampaign = campaign => {
   return $.ajax({
     method: 'PATCH',
     url: `api/campaigns/${campaign.id}`,
-    data: campaign
+    data: {campaign}
   })
 };
 

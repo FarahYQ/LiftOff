@@ -36,6 +36,7 @@
     .profile-sub {
       border-top: 2px solid #dddddd;
       padding-top: 15px;
+      padding-right: 10%;
   }
 }
 
@@ -155,14 +156,3 @@ profile-social-icons {
     }
   }
 }
-
-
-// .profile-view {
-//   display: grid;
-//   grid-template-columns: repeat(6, 1fr);
-//   grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-//   grid-template-areas:
-//   ". profile-name . . . ."
-//   ". profile-btn profile-campaign-btn . . ."
-//   ". profile-sub profile-sub profile-sub profile-sub profile-sub  ."
-// }

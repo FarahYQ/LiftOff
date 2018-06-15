@@ -45,7 +45,7 @@ class NavBar extends React.Component{
             <Link className='login-header' to={`/profile/${this.props.currentUser.id}`}>
               {this.props.currentUser.first_name} {this.props.currentUser.last_name}
             </Link>
-            <button className="logout-button" onClick={(e) => this.handleLogout(e)}>Log Out</button>
+            <button className="logout-button nav-session-btn" onClick={(e) => this.handleLogout(e)}>Log Out</button>
         </div>
         </nav>
       )

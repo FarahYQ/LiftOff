@@ -30,17 +30,17 @@ class ProfileDetail extends React.Component {
           <div className="verify">
             <div className="about-me verifications">Verifications</div>
             <div className="emails">
-              <div className="email-icon"><i class="fas fa-envelope"></i></div>
+              <div className="email-icon"><i className="fas fa-envelope"></i></div>
               <div className="about-text email">Email Verified</div>
             </div>
           </div>
           <div className="find-me">
             <div className="about-me find-me-on">Find Me On</div>
             <div className="profile-social-icons">
-              <button className="profile-fb-btn"><i class="fab fa-facebook"></i></button>
-              <button><i class="fab fa-twitter-square"></i></button>
-              <button><i class="fas fa-globe"></i></button>
-              <button><i class="fas fa-globe"></i></button>
+              <button className="profile-fb-btn"><i className="fab fa-facebook"></i></button>
+              <button><i className="fab fa-twitter-square"></i></button>
+              <button><i className="fas fa-globe"></i></button>
+              <button><i className="fas fa-globe"></i></button>
             </div>
           </div>
 

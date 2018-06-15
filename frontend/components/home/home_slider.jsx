@@ -45,10 +45,10 @@ class HomeSlider extends React.Component {
         </p>
         <div className="slider-arrows">
           <button className="left-slider-arrow" onClick={this.renderNewImg((idx+4)%5).bind(this)}>
-            <i class="fas fa-chevron-circle-left" style={{color:"white"}}></i>
+            <i className="fas fa-chevron-circle-left" style={{color:"white"}}></i>
           </button>
           <button className="right-slider-arrow" onClick={this.renderNewImg((idx+1)%5).bind(this)}>
-            <i class="fas fa-chevron-circle-right"></i>
+            <i className="fas fa-chevron-circle-right"></i>
           </button>
           <div></div>
         </div>

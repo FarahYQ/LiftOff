@@ -44,16 +44,16 @@ export const start_campaign = current_info => ({
   current_info
 })
 
-export const createCampaign = campaign => ({
+export const createCampaign = payload => ({
   type: CREATE_CAMPAIGN,
-  campaign
+  payload
 })
 
 // thunk functions
 export const makeCampaign = campaign => {
   return dispatch => {
     return CampaignAPIUtil.createCampaign(campaign).then(
-      campaign => dispatch(createCampaign(campaign))
+      payload => dispatch(createCampaign(payload))
     )
   }
 };

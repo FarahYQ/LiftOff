@@ -48,8 +48,8 @@ class Campaign extends React.Component {
                 <span>{`$ ${camp.current_sum}`}</span>{` USD raised by ${camp.backers_count} backers`}
               </div>
             </div>
-            <div class="tile-bar">
-                <div class="tile-bar-done" style={{width: "75%"}}></div>
+            <div className="tile-bar">
+                <div className="tile-bar-done" style={{width: "75%"}}></div>
             </div>
             <div className="funded-deets">
               <div className="percent"><span>{`${camp.percent_funded}% `}</span>{`of ${camp.goal} goal`}</div>
@@ -58,10 +58,10 @@ class Campaign extends React.Component {
             <div className="backit-row">
               <button className="backit">BACK IT</button>
               <div className="icons">
-                <div className="heart"><i class="far fa-heart"></i></div>
-                <div><i class="fab fa-facebook-f"></i></div>
-                <div><i class="fab fa-twitter"></i></div>
-                <div><i class="fas fa-link"></i></div>
+                <div className="heart"><i className="far fa-heart"></i></div>
+                <div><i className="fab fa-facebook-f"></i></div>
+                <div><i className="fab fa-twitter"></i></div>
+                <div><i className="fas fa-link"></i></div>
               </div>
             </div>
             </div>
