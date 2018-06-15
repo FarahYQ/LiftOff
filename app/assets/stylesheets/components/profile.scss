@@ -1,16 +1,160 @@
 .profile-pic {
-
-  padding: 20px;
   max-height: 460px;
   max-width: auto;
 }
 
-.campaign-card-photo {
-  padding: 20px;
-  max-height: 300px;
-  max-width: auto;
+
+.profile {
+  margin: 3% 7% 7% 7%;
+  font-family: lato;
+
+  .profile-name {
+    font-size: 35px;
+    font-weight: bold;
+    padding-bottom: 15px;
+  }
+  .profile-location {
+    color: grey;
+    font-size: 14px;
+    padding-bottom: 15px;
+  }
+  .profile-btns {
+    width: 150px;
+    display: flex;
+    justify-content: space-between;
+    .profile-btn:hover {
+      color: #EB1478;
+      font-weight: bold;
+      border-bottom: 3px solid #EB1478;
+    }
+    .btn-pink {
+      color: #EB1478;
+      font-weight: bold;
+      border-bottom: 3px solid #EB1478;
+    }
+  }
+    .profile-sub {
+      border-top: 2px solid #dddddd;
+      padding-top: 15px;
+  }
 }
 
+// Profile Detail component
+.profile-view {
+  display: flex;
+  justify-content: space-between;
+  .about {
+    width: 306px;
+  }
+  .about-me {
+    font-size: 25px;
+    color: grey;
+    padding-bottom: 10px;
+  }
+  .about-count {
+    display: flex;
+    justify-content: flex-start;
+    .num {
+      font-size: 20px;
+      color: black;
+      font-weight: bold;
+      padding-right: 7px;
+    }
+    .about-text {
+      font-size: 18px;
+      color: grey;
+    }
+  }
+  .verify {
+    display: flex;
+    flex-direction: column;
+    height: 229px;
+    .verifications {
+      padding-top: 15px;
+      border-bottom: 1px solid #dddddd;
+    }
+    .emails {
+      display: flex;
+      justify-content: flex-start;
+      margin-top: 15px;
+      border: 8px solid #dddddd;
+      padding: 10px;
+      * {
+        padding-right: 10px;
+      }
+    }
+  }
+}
+
+.find-me {
+  display: flex;
+  flex-direction: column;
+  height: 229px;
+  .find-me-on {
+    border-bottom: 1px solid #dddddd;
+  }
+  .profile-social-icons {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 15px;
+    border: 8px solid #dddddd;
+    padding: 10px;
+    * {
+      padding-right: 10px;
+    }
+
+  }
+}
+
+profile-social-icons {
+  display: flex;
+  justify-content: center;
+  * * {
+    font-size: 50px;
+  }
+}
+
+// Campaigns sub-component
+
+.profile-campaigns-title {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+
+.profile-campaign-items {
+  border-top: 1px solid #dddddd;
+  padding-top: 10px;
+  display: flex;
+  justify-content: flex-start;
+  .profile-camp-photo {
+    .width: 200px;
+      .thumb {
+        width: 200px;
+        object-fit: cover;
+      }
+  }
+  .profile-camp-details {
+    padding-left: 20px;
+    padding-right: 50px;
+    .profile-camp-titles {
+      font-size: 25px;
+    }
+    .profile-campaign-owner {
+      display: flex;
+      justify-content: flex-start;
+      .profile-camp-owner-name {
+        font-weight: bold;
+        color: #EB1478;
+        padding-left: 5px;
+      }
+    }
+    .profile-camp-sd {
+      color: grey;
+      font-size: 16px;
+    }
+  }
+}
 
 
 // .profile-view {

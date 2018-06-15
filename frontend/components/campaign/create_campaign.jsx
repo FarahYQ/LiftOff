@@ -1,0 +1,105 @@
+import React from 'react';
+import { makeCampaign } from '../../actions/campaign_actions';
+import { connect  } from 'react-redux';
+import merge from 'lodash/merge';
+
+class CreateCampaign extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state= {
+      goal: parseInt(this.props.currentInfo.goal),
+      title: this.props.currentInfo.title,
+      long_description: "",
+      short_description: "",
+      duration: ""
+    };
+    this.update = this.update.bind(this);
+  }
+
+  update(field){
+    return (e)=>(this.setState({[field]:e.target.value}))
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    let newInfo = Object.assign({}, {goal: this.state.goal, title: this.state.title,
+      long_description: this.state.long_description, short_description: this.state.short_description,
+      start_date: Date.now(), owner_id: this.props.ownerId,
+      main_photo_url: "https://s3-us-west-1.amazonaws.com/liftoff-go-photos/campaign-pics/campaigns_tech4-small.jpg",
+      small_photo_url: "https://s3-us-west-1.amazonaws.com/liftoff-go-photos/campaign-pics/campaigns_art1-small.jpg"});
+    let newCamp = merge({}, this.state, newInfo);
+    console.log(newCamp);
+    this.props.makeCamp(newInfo);
+  }
+
+  render() {
+    return (
+      <div className="campaign-form">
+        <div className="title-row">
+          <div className="title">Campaign / </div>
+          <div className="basics">Basics</div>
+        </div>
+        <div className="basics-section">Basics</div>
+        <div className="basics-instr">Make a good first impression: introduce your campaign objectives
+          and entice people to learn more. This basic information will represent
+          your campaign on your campaign page, on your campaign card, and in
+          searches.
+        </div>
+        <form onSubmit={(e) => this.handleSubmit(e)}>
+          <div className="input-title">Campaign Goal</div>
+          <div className="input-tagline">How much do you want to raise?</div>
+            <input
+              type="value" value={this.state.goal} onChange={this.update('goal')}/>
+          <div className="input-title">Campaign Title</div>
+          <div className="input-tagline">What is the title of your campaign?</div>
+            <input
+              type="value" value={this.state.title} onChange={this.update('title')}/>
+            <div className="input-title">Campaign Tagline</div>
+            <div className="input-tagline">Provide a short description that best describes your campaign to your audience.</div>
+            <input
+              type="value" value={this.state.short_description} onChange={this.update('short_description')}/>
+            <div className="input-title">Campaign Description</div>
+            <div className="input-tagline">Provide a description of your campaign.</div>
+            <input
+              type="value" value={this.state.long_description} onChange={this.update('long_description')}/>
+            <div className="input-title">Campaign Duration</div>
+            <div className="input-tagline">How many days will you be running your campaign for? You can run a campaign
+             for any number of days, with a 60 day duration maximum.</div>
+           <input className="start-camp-duration"
+              type="value" value={this.state.duration} onChange={this.update('duration')}/>
+
+            <div className="input-title">Launch your campaign before December 15, 2018 11:59pm PST</div>
+              <div className="input-tagline">Launch whenever you’re ready before this date. Campaigns
+                can only be in draft for 6 months before they expire and are
+                removed from your account. You will no longer have access to
+                this draft once it expires.
+              </div>
+              <div></div>
+            <input className="start-camp-submit" type="submit" value="CREATE MY CAMPAIGN"/>
+
+
+        </form>
+
+
+      </div>
+    )
+
+  }
+}
+
+
+
+const mapStateToProps = state => {
+  return {
+    currentInfo: state.entities.campaignStart,
+    ownerId: state.session.id
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    makeCamp: campaign => dispatch(makeCampaign(campaign))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CreateCampaign);

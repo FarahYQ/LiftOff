@@ -25,6 +25,7 @@
       }
       .funding {
         color: #088366;
+        border-bottom: 1px solid #dddddd;
       }
       .campaign-title {
         font-size: 17px;
@@ -42,6 +43,7 @@
       .owner-link {
         font-size: 13px;
         font-weight: bold;
+        // padding-bottom: 20px;
       }
       .sum {
         display: flex;
@@ -50,9 +52,13 @@
       .tile-bar{
         height: 10px;
         background-color:#dddddd;
+        position: relative;
         .tile-bar-done {
           height: 10px;
           background-color: #088366;
+          position: absolute;
+          top: 0px;
+          left: 1px;
         }
       }
       .funded-deets {
@@ -68,13 +74,22 @@
           width: 100px;
           color: white;
           font-size: 14px;
+          text-align: center;
+          vertical-align: middle;
         }
         .icons {
           display: flex;
-          justify-content: space-around;
+          justify-content: space-between;
           color: grey;
+          * * {
+            border: 2px solid grey;
+          }
         }
       }
+    }
+
+    .heart * {
+      border-radius: 50%;
     }
 
     // q3-a4
@@ -92,10 +107,14 @@
           padding-bottom: 15px;
           display: flex;
           justify-content: space-between;
-          .campaign-sp {
-
-            width: 46%;
-            max-height: 200px;
+          .campaign-sp-container {
+            position: relative;
+            // width: 46%;
+            .campaign-sp {
+              position: absolute;
+              clip: rect(0px, 210px, 200px, 0);
+            }
+            // max-height: 200px;
 
           }
           .overview-long-description {
@@ -110,10 +129,19 @@
 
         }
         .campaign-extras {
+          padding-left: 10px;
+          padding-right: 10px;
+          padding-top: 30px;
           display: flex;
           justify-content: space-between;
           color: grey;
+          border-bottom: 1px solid #dddddd;
         }
+        .campaign-sp-large, .more-words {
+          width: 100%;
+          padding-top: 15px;
+        }
+
       }
       .q4 {
         width: 30vw;

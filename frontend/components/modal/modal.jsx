@@ -19,9 +19,18 @@ const Modal = ({modal, closeModal}) => {
     default:
       return null;
   }
+
+  const handleKeyPress = (event) => {
+    console.log("try to escape");
+  if(event.key == 'Escape'){
+    console.log('enter press here! ')
+    }
+  }
+
   return (
     <div className="modal-background" onClick={closeModal}>
-      <div className="modal-child" onClick={e => e.stopPropagation()}>
+      <div className="modal-child" onClick={e => e.stopPropagation()}
+        onKeyPress={handleKeyPress}>
         { component }
       </div>
     </div>

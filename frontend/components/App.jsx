@@ -17,6 +17,9 @@ import Home from './home/home';
 import Profile from './profile/profile_container';
 import ProfileCampaigns from './profile/campaigns';
 import CampaignContainer from './campaign/campaign_container';
+import StartCampaign from './campaign/start_campaign';
+import CreateCampaign from './campaign/create_campaign';
+
 
 const App = () => (
 
@@ -31,6 +34,8 @@ const App = () => (
       <AuthRoute exact path='/signup' component={SignupFormContainer}/>
       <Route exact path='/campaigns/:campaignId' component={CampaignContainer}/>
       <Route path='/profile/:userId' component={Profile}/>
+      <Route path='/creator' component={StartCampaign}/>
+      <Route path='/create-campaign' component={CreateCampaign} />
       <Route path='/' component={Home}/>
       <Redirect to='/'/>
   </Switch>

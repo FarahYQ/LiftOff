@@ -1,0 +1,136 @@
+.start-campaign-start {
+  margin: 3% 7% 7% 7%;
+  font-family: sans-serif;
+  .start-campaign-title {
+    font-size: 40px;
+    font-weight: bold;
+    padding-bottom: 20px;
+  }
+  .start-campaign-subtitle {
+    font-size: 17px;
+    padding-bottom: 40px;
+  }
+  input {
+    font-weight: normal;
+    height: 45px;
+    line-height: 16px;
+    padding: 5px, 10px;
+    background-color: #ffffff;
+    border: 1px solid #DCDCDC;
+    text-indent: 10px;
+    letter-spacing: normal;
+    text-rendering: auto;
+  }
+  .money-section {
+    color: grey;
+    font-size: 16px;
+    padding-bottom: 40px;
+    .money-input {
+      display: flex;
+      justify-content: flex-start;
+      padding-bottom: 7px;
+      padding-top: 9px;
+      .input {
+        width: 200px;
+      }
+      .start-currency {
+        background-color: #0EB4b6;
+        height: 50px;
+        color: white;
+        margin-left: 8px;
+        text-align: center;
+        vertical-align: middle;
+        line-height: 50px;
+        width: 88px;
+      }
+    }
+  }
+
+.title-input {
+  color: grey;
+  padding-bottom: 50px;
+  * {
+    padding-bottom: 7px;
+    padding-top: 9px;
+    }
+    input {
+      width: 540px;
+      height: 45px;
+    }
+  }
+  .camp-start-btn {
+    height: 50px;
+    width: 270px;
+    background-color: #EB1478;
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 50px;
+    font-size: 16px;
+    font-weight: bold;
+  }
+}
+.subtext {
+  font-size: 14px;
+  color: #dddddd;
+}
+
+// 2nd create campaign form
+.campaign-form {
+  padding: 3% 7% 7% 7%;
+
+  font-family: sans-serif;
+  font-size: 13px;
+  background-color: #F5F5F5;
+  * {
+    padding-bottom: 8px;
+  }
+  .title-row {
+    display: flex;
+    justify-content: flex-start;
+    font-size: 20px;
+    .title {
+    }
+    .basics {
+      color: purple;
+    }
+  }
+  .basics-section {
+    font-size: 18px;
+  }
+  .basics-instr {
+    font-size: 16px;
+  }
+.input-title {
+  margin-top: 25px;
+  font-size: 16px;
+}
+input {
+  font-weight: normal;
+  height: 32px;
+  line-height: 16px;
+  padding: 5px, 10px;
+  background-color: #ffffff;
+  border: 1px solid #DCDCDC;
+  text-indent: 10px;
+  letter-spacing: normal;
+  text-rendering: auto;
+  width: 85%
+  // margin-bottom: 25px;
+}
+.start-camp-duration {
+  width: 45px;
+}
+.start-camp-submit {
+  border-top: 1px solid #dddddd;
+  margin-top: 30px;
+  background-color: #7A69B3;
+  color: white;
+  width: 220px;
+  text-indent: 0px;
+  text-align: center;
+  vertical-align: middle;
+  margin-left: 55%
+
+}
+}

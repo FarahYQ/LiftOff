@@ -6,7 +6,8 @@ export const RECEIVE_UPDATES = 'RECEIVE_UPDATES';
 export const RECEIVE_CAMPAIGN_ERRORS = 'RECEIVE_CAMPAIGN_ERRORS';
 export const CLEAR_CAMPAIGN_ERRORS = 'CLEAR_CAMPAIGN_ERRORS';
 export const REMOVE_CAMPAIGN = 'REMOVE_CAMPAIGN';
-
+export const START_CAMPAIGN = 'START_CAMPAIGN';
+export const CREATE_CAMPAIGN = 'CREATE_CAMPAIGN';
 
 // actions
 export const receiveCampaigns = campaigns =>({
@@ -38,8 +39,29 @@ export const remove_campaign = campaignId => ({
   campaignId
 })
 
+export const start_campaign = current_info => ({
+  type: START_CAMPAIGN,
+  current_info
+})
+
+export const createCampaign = campaign => ({
+  type: CREATE_CAMPAIGN,
+  campaign
+})
 
 // thunk functions
+export const makeCampaign = campaign => {
+  return dispatch => {
+    return CampaignAPIUtil.createCampaign(campaign).then(
+      campaign => dispatch(createCampaign(campaign))
+    )
+  }
+};
+
+export const startCampaign = start_info => {
+  return dispatch => dispatch(start_campaign(start_info))
+};
+
 export const fetchAllCampaigns = () => {
   return dispatch => {
     return CampaignAPIUtil.fetchAllCampaigns().then(
@@ -56,13 +78,13 @@ export const fetchCampaign = id => {
   }
 };
 
-export const createCampaign = campaign => {
-  return dispatch => {
-    return CampaignAPIUtil.createCampaign(campaign).then(
-      payload => dispatch(receiveCampaign(payload))
-    )
-  }
-};
+// export const createCampaign = campaign => {
+//   return dispatch => {
+//     return CampaignAPIUtil.createCampaign(campaign).then(
+//       payload => dispatch(receiveCampaign(payload))
+//     )
+//   }
+// };
 
 export const updateCampaign = campaign => {
   return dispatch => {

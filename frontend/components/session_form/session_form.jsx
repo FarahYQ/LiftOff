@@ -17,7 +17,7 @@ class SessionForm extends React.Component {
   componentWillUnmount() {
     this.props.clearErrors();
   }
-  
+
   update(field) {
     return (e) => {
       this.setState({ [field]: e.target.value })
@@ -50,6 +50,8 @@ class SessionForm extends React.Component {
       </ul>
     );
   }
+
+
 
 
 // <button className="session-x" onClick={this.props.closeModal}>x</button>

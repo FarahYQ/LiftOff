@@ -7,9 +7,11 @@ class Api::CampaignsController < ApplicationController
     end
 
     @camp = Campaign.new(campaign_params)
-    @camp.owner_id = current_user.id
-    @camp.main_photo_url = "https://s3-us-west-1.amazonaws.com/liftoff-go-photos/campaign-pics/campaigns_tech4.jpg"
-    @camp.small_photo_url = "https://s3-us-west-1.amazonaws.com/liftoff-go-photos/campaign-pics/campaigns_tech4-small.jpg"
+    # @camp.owner_id = current_user.id
+    # @camp.main_photo_url = "https://s3-us-west-1.amazonaws.com/liftoff-go-photos/campaign-pics/campaigns_tech4.jpg"
+    # @camp.small_photo_url = "https://s3-us-west-1.amazonaws.com/liftoff-go-photos/campaign-pics/campaigns_tech4-small.jpg"
+    @camp.goal = parseInt(@camp.goal)
+    @camp.end_date = Time.now + 10.days
     if @camp.save
       render :show
     else
