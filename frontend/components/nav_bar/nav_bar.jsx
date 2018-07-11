@@ -25,9 +25,9 @@ class NavBar extends React.Component{
           <div className="nav-right">
             <div>For Entrepenuers</div>
             <Link to={'/creator'}>Start a Campaign</Link>
-            <div>{this.props.login}</div>
+            {this.props.login}
             <br/>
-            <div>{this.props.signup}</div>
+            {this.props.signup}
         </div>
         </nav>
       )
