@@ -54,12 +54,40 @@ class SessionForm extends React.Component {
 
 
 
+
+
 // <button className="session-x" onClick={this.props.closeModal}>x</button>
 
   render() {
+    let mod;
+    let div_class;
+    if (this.props.formType === 'SIGN UP') {
+      mod = (
+    <div><input type="first_name"
+        placeholder="First Name"
+        value={this.state.first_name}
+        onChange={this.update('first_name')}
+        className="login-input"/>
+      <br/>
+    <input type="last_name"
+        placeholder="Last Name"
+        value={this.state.last_name}
+        onChange={this.update('last_name')}
+        className="login-input"/>
+      <br/>
+      </div>
+      );
+      div_class = 'signup'
+    } else {
+      mod = (
+      
+      <br/>
+      );
+      div_class = 'login'
+    }
 
     return (
-      <div className="session-form-container">
+      <div className={div_class}>
 
         <form onSubmit={(e) => this.handleSubmit(e)} className="session-form-box">
 
@@ -69,18 +97,7 @@ class SessionForm extends React.Component {
           <div className="session-t2">--- Or {this.props.formType.toLowerCase()} with email ---</div>
           <br/>
           <div className="errors">{this.renderErrors()}</div>
-        <input type="first_name"
-            placeholder="First Name"
-            value={this.state.first_name}
-            onChange={this.update('first_name')}
-            className="login-input"/>
-          <br/>
-        <input type="last_name"
-            placeholder="Last Name"
-            value={this.state.last_name}
-            onChange={this.update('last_name')}
-            className="login-input"/>
-          <br/>
+        {mod}
         <input type="email"
             placeholder="Email"
             value={this.state.email}
@@ -104,8 +121,6 @@ class SessionForm extends React.Component {
             <div className="session-redirect-btn">{this.props.otherForm}</div>
           </div>
         </form>
-
-
       </div>
     )
   }

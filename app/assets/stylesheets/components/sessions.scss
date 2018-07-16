@@ -2,7 +2,18 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.session-form-container {
+.login {
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  min-width: 290px;
+  font-family: "Benton Sans","Helvetica","sans-serif";
+  border-radius: 1%;
+}
+
+.signup {
   background-color: #f5f5f5;
   display: flex;
   justify-content: center;
@@ -12,6 +23,7 @@
   font-family: "Benton Sans","Helvetica","sans-serif";
   border-radius: 1%;
 }
+
 
 .session-form-container * {
 }

@@ -2,6 +2,8 @@ import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 
 const CampaignIndexItem = ( { campaign }) => {
+  const funded = campaign.percent_funded;
+  
   return (
     <div>
       <li className="camp-index-item">
@@ -23,7 +25,7 @@ const CampaignIndexItem = ( { campaign }) => {
                   <div className="tile-percent_funded">{`${campaign.percent_funded} %`}</div>
                 </div>
                 <div className="tile-bar">
-                  <div className="tile-bar-done" style={{width: "75%"}}></div>
+                  <div className="tile-bar-done" style={{width: `${funded}%`}}></div>
                 </div>
               </div>
               <div className="tile-duration">{campaign.duration} Days Left</div>

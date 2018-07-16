@@ -9,6 +9,17 @@ class Api::CampaignsController < ApplicationController
     @campaign.owner_id = current_user.id
     @campaign.goal = @campaign.goal.to_i
     @campaign.start_date = Date.today
+    main_photos = ["https://s3-us-west-1.amazonaws.com/liftoff-go-photos/campaign-pics/campaign_game.jpg",
+    "https://s3-us-west-1.amazonaws.com/liftoff-go-photos/campaign-pics/campaign_watch.jpg",
+    "https://s3-us-west-1.amazonaws.com/liftoff-go-photos/campaign-pics/campaigns_pottery1.jpg"
+                ]
+    small_photos = ["https://s3-us-west-1.amazonaws.com/liftoff-go-photos/campaign-pics/campaigns_game-small.jpg",
+    "https://s3-us-west-1.amazonaws.com/liftoff-go-photos/campaign-pics/campaigns_watch-small.jpg",
+    "https://s3-us-west-1.amazonaws.com/liftoff-go-photos/campaign-pics/campaigns_pottery1-small.jpg"
+  ]
+  idx = rand(0..2)
+  @campaign.main_photo_url = main_photos[idx]
+  @campaign.small_photo_url = small_photos[idx]
     if @campaign.save!
       render :show
     else

@@ -23,8 +23,10 @@ class CreateCampaign extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.makeCamp(newInfo).then( payload => {
-      this.props.history.push(`/campaigns/${Object.keys(payload.campaign)[0]}`);
+    console.log(this.state);
+    
+    this.props.makeCamp(this.state).then( payload => {
+      this.props.history.push(`/campaigns/${Object.keys(payload.payload.campaign)[0]}`);
     }
   )
 }

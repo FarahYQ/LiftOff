@@ -21,11 +21,14 @@ class HomeSlider extends React.Component {
   }
 
   render() {
+    console.log(this.state)
     let idx = this.state.photoIdx;
     const camps = this.props.camps;
     if (!camps) {
       return <div>loading...</div>
     }
+    console.log(camps)
+    console.log(camps[idx].main_photo_url)
 
     return (
       <div className="slider">
@@ -39,7 +42,7 @@ class HomeSlider extends React.Component {
         </p>
         <div className="slider-arrows">
           <button className="left-slider-arrow" onClick={this.renderNewImg((idx+4)%5).bind(this)}>
-            <i className="fas fa-chevron-circle-left" style={{color:"white"}}></i>
+            <i className="fas fa-chevron-circle-left"></i>
           </button>
           <button className="right-slider-arrow" onClick={this.renderNewImg((idx+1)%5).bind(this)}>
             <i className="fas fa-chevron-circle-right"></i>
