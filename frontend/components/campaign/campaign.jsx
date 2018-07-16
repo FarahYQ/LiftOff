@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 
+
 class Campaign extends React.Component {
   constructor(props) {
     super(props);
-
+    this.handleContribution = this.handleContribution.bind(this);
   }
 
   componentDidMount() {
@@ -16,15 +17,27 @@ class Campaign extends React.Component {
     )
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps) { 
     if (this.props.match.params.campaignId !== nextProps.match.params.campaignId) {
       this.props.fetchCampaign(nextProps.match.params.campaignId)
     }
   }
 
+  handleContribution(amt) {
+    let cont = {
+      amount: amt,
+      user_id: 77,
+      campaign_id: 54,
+      visibility: 'public'
+    };
+    return (e) => (this.props.addContribution(cont))
+  }
+  
+
   main() {
     const camp = this.props.campaign;
     const owner = this.props.owner;
+    const funded = this.props.percent_funded;
 
     return (
       <div className="campaign-main">
@@ -49,14 +62,14 @@ class Campaign extends React.Component {
               </div>
             </div>
             <div className="tile-bar">
-                <div className="tile-bar-done" style={{width: "75%"}}></div>
+                <div className="tile-bar-done" style={{width: `${funded}%`}}></div>
             </div>
             <div className="funded-deets">
               <div className="percent"><span>{`${camp.percent_funded}% `}</span>{`of ${camp.goal} goal`}</div>
               <div><span>50</span> days left</div>
             </div>
             <div className="backit-row">
-              <button className="backit">BACK IT</button>
+              <button className="backit" onClick={this.handleContribution(100)}>BACK IT</button>
               <div className="icons">
                 <div className="heart"><i className="far fa-heart"></i></div>
                 <div><i className="fab fa-facebook-f"></i></div>

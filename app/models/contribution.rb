@@ -13,7 +13,7 @@
 
 class Contribution < ApplicationRecord
   validates :amount, :user_id, :campaign_id, :visibility, presence: true
-  validates :visilibity, inclusion: { in: ["public", "anonymous"]}
+  validates :visibility, inclusion: { in: ["public", "anonymous"]}
   validates :amount, numericality: { greater_than: 0 }
 
   belongs_to :user
