@@ -17,6 +17,7 @@ export const receiveContributionErrors = errors =>({
 })
 
 export const createContribution = contribution => {
+  console.log(`${contribution.amount}-------------`)
   return dispatch => {
     return ContributionAPIUtil.createContribution(contribution).then(
       cont => dispatch(receiveContribution(cont)),

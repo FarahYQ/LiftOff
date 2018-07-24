@@ -53,7 +53,8 @@ export const createCampaign = payload => ({
 export const makeCampaign = campaign => {
   return dispatch => {
     return CampaignAPIUtil.createCampaign(campaign).then(
-      payload => dispatch(createCampaign(payload))
+      payload => dispatch(createCampaign(payload)),
+      err => dispatch(receiveCampaignErrors(err.responseText))
     )
   }
 };

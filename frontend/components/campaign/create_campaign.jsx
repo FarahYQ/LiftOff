@@ -7,8 +7,9 @@ import merge from 'lodash/merge';
 class CreateCampaign extends React.Component {
   constructor(props) {
     super(props);
+    let goal = parseInt(this.props.currentInfo.goal) || "";
     this.state= {
-      goal: parseInt(this.props.currentInfo.goal),
+      goal: goal,
       title: this.props.currentInfo.title,
       long_description: "",
       short_description: "",
@@ -16,19 +17,36 @@ class CreateCampaign extends React.Component {
     };
     this.update = this.update.bind(this);
   }
-
-  update(field){
+ 
+  update(field) {
     return (e)=>(this.setState({[field]:e.target.value}))
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log(this.state);
-    
     this.props.makeCamp(this.state).then( payload => {
       this.props.history.push(`/campaigns/${Object.keys(payload.payload.campaign)[0]}`);
     }
   )
+}
+
+renderErrors() {
+  // if (this.props.errors === "Login to create a campaign") {
+  //   return this.props.errors
+  // }
+  // console.log(`${this.props.errors}----------`)
+  // let errs = JSON.parse(this.props.errors);
+  // console.log(`${errs}================`)
+  // return (
+  //   <ul>
+  //     {errs.map((error, i) => (
+  //       <li key={`campaign-error-${i}`}>
+  //         { error }
+  //       </li>
+  //     ))}
+  //   </ul>
+  // )
+  return this.props.errors
 }
 
   render() {
@@ -74,6 +92,7 @@ class CreateCampaign extends React.Component {
                 this draft once it expires.
               </div>
               <div></div>
+              <div className="create-campaign-errors">{this.renderErrors()}</div>
             <input className="start-camp-submit" type="submit" value="CREATE MY CAMPAIGN"/>
 
 
@@ -89,9 +108,11 @@ class CreateCampaign extends React.Component {
 
 
 const mapStateToProps = state => {
+
   return {
     currentInfo: state.entities.campaignStart,
-    ownerId: state.session.id
+    ownerId: state.session.id,
+    errors: state.errors.campaign
   }
 }
 

@@ -5,19 +5,18 @@ class Api::ContributionsController < ApplicationController
       render json: {login: "Log in to create a contribution"}, status: 401
       return
     end
-
-    @contribution = current_user.contributions.new(contribution_params)
+    @contribution = Contribution.new(contribution_params)
     
-    if !contribution.reward.nil?
-      if !contribution.reward.enough_inventory?
-        UserReward.new(current_user.id)
-      end
-    end
+    # if !@contribution.reward.nil?
+    #   if !@contribution.reward.enough_inventory?
+    #     UserReward.new(current_user.id)
+    #   end
+    # end
 
     if @contribution.save
       @campaign = @contribution.campaign
-      @contribution.campaign.add_contribution(@contribution.amount)
-      render "api/campaigns/#{@contribution.campaign_id}"
+      @campaign.add_contribution(@contribution.amount)
+      # render "/#/campaigns/#{@contribution.campaign_id}"
     else
       render json: @contribution.errors, status: 422
     end

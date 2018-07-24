@@ -4,6 +4,9 @@ import { RECEIVE_CAMPAIGNS, RECEIVE_CAMPAIGN,
   REMOVE_CAMPAIGN, CREATE_CAMPAIGN } from '../actions/campaign_actions';
 import merge from 'lodash/merge';
 
+// return merge({}, state, {errors:null}, {errors:actions.errors})
+// case CLEAR_CAMPAIGN_ERRORS:
+//   return merge({}, state, {errors:null}, {errors:{}})
 const campaignsReducer = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_USER:
@@ -19,9 +22,6 @@ const campaignsReducer = (state = {}, action) => {
       delete newState[action.campaignId];
       return newState;
     case RECEIVE_CAMPAIGN_ERRORS:
-      return merge({}, start, {errors:null}, {errors:actions.errors})
-    case CLEAR_CAMPAIGN_ERRORS:
-      return merge({}, state, {errors:null}, {errors:{}})
     default:
       return state;
   }

@@ -2,12 +2,13 @@ class Api::CampaignsController < ApplicationController
 
   def create
     unless logged_in?
-      render json: "Login to create a campaign", status: 401
+      err = "Login to create a campaign"
+      render json: err, status: 401
       return
     end
     @campaign = Campaign.new(campaign_params)
     @campaign.owner_id = current_user.id
-    @campaign.goal = @campaign.goal.to_i
+    @campaign.goal = @campaign.goal.to_i unless @campaign.goal == nil
     @campaign.start_date = Date.today
     main_photos = ["https://s3-us-west-1.amazonaws.com/liftoff-go-photos/campaign-pics/campaign_game.jpg",
     "https://s3-us-west-1.amazonaws.com/liftoff-go-photos/campaign-pics/campaign_watch.jpg",
@@ -20,10 +21,10 @@ class Api::CampaignsController < ApplicationController
   idx = rand(0..2)
   @campaign.main_photo_url = main_photos[idx]
   @campaign.small_photo_url = small_photos[idx]
-    if @campaign.save!
+    if @campaign.save
       render :show
     else
-      render json: @campaign.errors, status: 422
+      render json: @campaign.errors.full_messages, status: 401
     end
   end
 

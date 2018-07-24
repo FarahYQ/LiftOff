@@ -23,7 +23,8 @@
     bottom: 180px;
     left: 50px;
     font-family: Lato;
-    color: black;
+    color: rgb(255, 255, 255); 
+    mix-blend-mode: color-dodge;
     font-size: 18px;
     text-decoration: underline;
   }
@@ -33,7 +34,8 @@
     top: 310px;
     left: 50px;
     font-family: Lato;
-    color: black;
+    color: rgb(255, 255, 255); 
+    mix-blend-mode: color-dodge;
     font-size: 14px;
   }
 
@@ -44,8 +46,8 @@
     position: absolute;
     bottom: 50px;
     left: 50px;
-    // color: #ffffff;
-    color: black;
+    color: rgb(255, 255, 255); 
+    mix-blend-mode: color-dodge;
     font-size: 40px;
     .left-slider-arrow {
       padding-right: 15px;

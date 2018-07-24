@@ -26,11 +26,12 @@ class Campaign extends React.Component {
   handleContribution(amt) {
     let cont = {
       amount: amt,
-      user_id: 77,
-      campaign_id: 54,
+      user_id: 110,
+      campaign_id: this.props.campaign.id,
       visibility: 'public'
     };
-    return (e) => (this.props.addContribution(cont))
+    console.log(`${cont.campaign_id}-------========------`)
+    return (e) => (this.props.addContribution(cont)).then(() => this.props.fetchCampaign(this.props.campaign.id))
   }
   
 
@@ -38,7 +39,6 @@ class Campaign extends React.Component {
     const camp = this.props.campaign;
     const owner = this.props.owner;
     const funded = this.props.percent_funded;
-
     return (
       <div className="campaign-main">
         <div className="q1-q2">

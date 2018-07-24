@@ -30,6 +30,7 @@ class Campaign < ApplicationRecord
 
   def add_contribution(amount)
     self.current_sum += amount
+    self.save
   end
 
 
