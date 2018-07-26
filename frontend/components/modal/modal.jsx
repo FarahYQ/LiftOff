@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import LoginFormContainer from '../session_form/login_form_container';
 import SignupFormContainer from '../session_form/signup_form_container';
 
-const Modal = ({modal, closeModal}) => {
+const Modal = ({modal, closeModal, campaignId}) => {
   if (!modal) {
     return null;
   }
@@ -42,9 +42,4 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Modal);
-//
-// const handleKeyPress = (event) => {
-// if(event.key == 'Escape'){
-//   console.log('enter press here! ')
-//   }
-// }
+

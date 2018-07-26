@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
-
+import Modal from '../modal/modal';
+import { openModal, closeModal } from '../../actions/modal_actions';
 
 class Campaign extends React.Component {
   constructor(props) {
@@ -24,13 +25,15 @@ class Campaign extends React.Component {
   }
 
   handleContribution(amt) {
+     if (!this.props.currentUser) {
+      return (e) => (this.props.login());
+    }
     let cont = {
       amount: amt,
       user_id: 110,
       campaign_id: this.props.campaign.id,
       visibility: 'public'
     };
-    console.log(`${cont.campaign_id}-------========------`)
     return (e) => (this.props.addContribution(cont)).then(() => this.props.fetchCampaign(this.props.campaign.id))
   }
   
@@ -38,7 +41,7 @@ class Campaign extends React.Component {
   main() {
     const camp = this.props.campaign;
     const owner = this.props.owner;
-    const funded = this.props.percent_funded;
+    const funded = camp.percent_funded;
     return (
       <div className="campaign-main">
         <div className="q1-q2">
@@ -113,7 +116,7 @@ class Campaign extends React.Component {
           <div className="q4">
             <div className="rewards"></div>
           </div>
-
+          <Modal campaignId={this.props.campaign.id}/>
 
 
 

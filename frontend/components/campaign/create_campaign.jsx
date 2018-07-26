@@ -46,7 +46,7 @@ renderErrors() {
   //     ))}
   //   </ul>
   // )
-  return this.props.errors
+  return this.props.errors;
 }
 
   render() {
