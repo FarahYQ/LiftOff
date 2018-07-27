@@ -20,7 +20,8 @@ const mapDispatchToProps = dispatch => {
     fetchCampaign: id => dispatch(fetchCampaign(id)),
     requestUser: id => dispatch(requestUser(id)),
     addContribution: amt => dispatch(createContribution(amt)),
-    login: () => dispatch(openModal('login'))
+    login: () => dispatch(openModal('login')),
+    backit: () => dispatch(openModal('contribute'))
   };
 };
 

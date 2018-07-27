@@ -6,7 +6,7 @@ import { openModal, closeModal } from '../../actions/modal_actions';
 class Campaign extends React.Component {
   constructor(props) {
     super(props);
-    this.handleContribution = this.handleContribution.bind(this);
+    this.openContributionModal = this.openContributionModal.bind(this);
   }
 
   componentDidMount() {
@@ -24,17 +24,20 @@ class Campaign extends React.Component {
     }
   }
 
-  handleContribution(amt) {
+  openContributionModal(e) {
+    e.preventDefault();
      if (!this.props.currentUser) {
-      return (e) => (this.props.login());
+      return this.props.login();
     }
-    let cont = {
-      amount: amt,
-      user_id: 110,
-      campaign_id: this.props.campaign.id,
-      visibility: 'public'
-    };
-    return (e) => (this.props.addContribution(cont)).then(() => this.props.fetchCampaign(this.props.campaign.id))
+    console.log(`hellooooo ${this.props.backit()}`)
+    return this.props.backit();
+    // let cont = {
+    //   amount: amt,
+    //   user_id: 110,
+    //   campaign_id: this.props.campaign.id,
+    //   visibility: 'public'
+    // };
+    // return (e) => (this.props.addContribution(cont)).then(() => this.props.fetchCampaign(this.props.campaign.id))
   }
   
 
@@ -72,7 +75,7 @@ class Campaign extends React.Component {
               <div><span>50</span> days left</div>
             </div>
             <div className="backit-row">
-              <button className="backit" onClick={this.handleContribution(100)}>BACK IT</button>
+              <button className="backit" onClick={(e) => this.openContributionModal(e)}>BACK IT</button>
               <div className="icons">
                 <div className="heart"><i className="far fa-heart"></i></div>
                 <div><i className="fab fa-facebook-f"></i></div>

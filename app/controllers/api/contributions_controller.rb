@@ -18,7 +18,7 @@ class Api::ContributionsController < ApplicationController
       @campaign.add_contribution(@contribution.amount)
       # render "/#/campaigns/#{@contribution.campaign_id}"
     else
-      render json: @contribution.errors, status: 422
+      render json: @contribution.errors.full_messages, status: 401
     end
   end
 

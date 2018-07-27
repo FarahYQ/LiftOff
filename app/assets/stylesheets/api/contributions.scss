@@ -1,3 +1,41 @@
 // Place all the styles related to the api/contributions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.contribute-box {
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    min-width: 320px;
+    font-family: "Benton Sans","Helvetica","sans-serif";
+    border-radius: 1%;
+}
+
+contribute-input {
+    display: block;
+    font-weight: normal;
+    height: 32px;
+    line-height: 16px;
+    font-size: 14px;
+    width: 100%;
+    padding: 5px, 10px;
+    background-color: #ffffff;
+    border: 1px solid #DCDCDC;
+  }
+  
+  contribute-input, textarea {
+    letter-spacing: normal;
+    text-rendering: auto;
+    text-align: start;
+    text-indent: 5px;
+  }
+  
+  .contribute-submit {
+    padding: 5px;
+    background-color: #E51075;
+    color: white;
+    font-size: 15px;
+    margin-left: 180px;
+  }
