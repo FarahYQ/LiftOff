@@ -7,13 +7,20 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 300px;
-    min-width: 320px;
+    height: 200px;
+    min-width: 420px;
     font-family: "Benton Sans","Helvetica","sans-serif";
     border-radius: 1%;
 }
 
-contribute-input {
+.cont-title {
+  font-size: 22px;
+  
+  font-family: "Benton Sans","Helvetica","sans-serif";
+  text-align: center;
+}
+
+.contribute-input {
     display: block;
     font-weight: normal;
     height: 32px;
@@ -25,7 +32,7 @@ contribute-input {
     border: 1px solid #DCDCDC;
   }
   
-  contribute-input, textarea {
+  .contribute-input, textarea {
     letter-spacing: normal;
     text-rendering: auto;
     text-align: start;

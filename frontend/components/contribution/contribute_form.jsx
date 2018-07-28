@@ -10,7 +10,7 @@ class MakeContribution extends React.Component {
   constructor(props) {
     super(props);
     this.state= {
-      amount: 0
+      amount: ""
     };
     this.update = this.update.bind(this);
     this.handleContribution = this.handleContribution.bind(this);
@@ -37,16 +37,22 @@ class MakeContribution extends React.Component {
 
   renderErrors() {
       console.log(`============= ${this.props.errors.responseJSON}`);
-    return(
-        this.props.errors.responseJSON
-    );
+      if (this.props.errors.responseJSON) {
+        return(
+            <ul>
+            {this.props.errors.responseJSON.map((error,i) => (
+                <li key={`error-${i}`}>{error}</li>
+            ))}
+            </ul>
+        );
+    }
   }
 
   render() {
     return (
         <div className="contribute-box">
-
         <form onSubmit={(e) => this.handleContribution(e)} className="contribute-form-box">
+        <div className="cont-title">Make a Contribution</div>
         <div className="errors">{this.renderErrors()}</div>
         <input type="amount"
             placeholder="Donation Amount"
@@ -68,14 +74,6 @@ class MakeContribution extends React.Component {
   }
 }
 
-
-
-// const mapStateToProps = state => {
-//   return {
-//     campaign: camp,
-//     owner: state.entities.users[camp.owner_id] || {last_name: "Raul", first_name: ""}
-//   };
-// }
 const mapStateToProps = ({ errors }) => {
     return {
       errors: errors.contribution

@@ -35,11 +35,13 @@ class HomeSlider extends React.Component {
         <Link to={`/campaigns/${camps[idx].id}`}>
           <img className="current-slider-photo" src={camps[idx].main_photo_url} />
         </Link>
-        <div className="featured">Featured</div>
-        <p className="featured-text">
-          Laboriosam excepturi possimus aliquam dolores nesciunt consequatur
-          voluptatem. Fugit quam ducimus non.
-        </p>
+        <div className="featured-box">
+          <div className="featured">Featured</div>
+          <p className="featured-text">
+            Laboriosam excepturi possimus aliquam dolores nesciunt consequatur
+            voluptatem. Fugit quam ducimus non.
+          </p>
+          <div className="slider-see-campaign">SEE CAMPAIGN</div>
         <div className="slider-arrows">
           <button className="left-slider-arrow" onClick={this.renderNewImg((idx+4)%5).bind(this)}>
             <i className="fas fa-chevron-circle-left"></i>
@@ -48,6 +50,7 @@ class HomeSlider extends React.Component {
             <i className="fas fa-chevron-circle-right"></i>
           </button>
           <div></div>
+        </div>
         </div>
       </div>
     )

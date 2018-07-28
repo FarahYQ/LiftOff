@@ -23,7 +23,6 @@ class NavBar extends React.Component{
             <a>What We Do</a>
           </div>
           <div className="nav-right">
-            <div>For Entrepenuers</div>
             <Link to={'/creator'}>Start a Campaign</Link>
             {this.props.login}
             <br/>
@@ -40,7 +39,6 @@ class NavBar extends React.Component{
             <a>What We Do</a>
           </div>
           <div className="nav-right">
-            <div>For Entrepenuers</div>
             <Link to={'/creator'}>Start a Campaign</Link>
             <Link className='login-header' to={`/profile/${this.props.currentUser.id}`}>
               {this.props.currentUser.first_name} {this.props.currentUser.last_name}
