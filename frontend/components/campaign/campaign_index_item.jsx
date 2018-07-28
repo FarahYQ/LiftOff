@@ -2,7 +2,12 @@ import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 
 const CampaignIndexItem = ( { campaign }) => {
-  const funded = campaign.percent_funded;
+  let funded;
+  if (campaign.percent_funded < 100) {
+    funded = campaign.percent_funded;
+  } else {
+    funded = 100;
+  }
   
   return (
     <div>

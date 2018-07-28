@@ -41,7 +41,7 @@ class HomeSlider extends React.Component {
             Laboriosam excepturi possimus aliquam dolores nesciunt consequatur
             voluptatem. Fugit quam ducimus non.
           </p>
-          <div className="slider-see-campaign">SEE CAMPAIGN</div>
+          <Link className="slider-see-campaign" to={`/campaigns/${camps[idx].id}`}>SEE CAMPAIGN</Link>
         <div className="slider-arrows">
           <button className="left-slider-arrow" onClick={this.renderNewImg((idx+4)%5).bind(this)}>
             <i className="fas fa-chevron-circle-left"></i>

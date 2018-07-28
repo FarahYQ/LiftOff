@@ -44,7 +44,12 @@ class Campaign extends React.Component {
   main() {
     const camp = this.props.campaign;
     const owner = this.props.owner;
-    const funded = camp.percent_funded;
+    let funded;
+    if (camp.percent_funded < 100) {
+      funded = camp.percent_funded;
+    } else {
+      funded = 100;
+    }
     return (
       <div className="campaign-main">
         <div className="q1-q2">
