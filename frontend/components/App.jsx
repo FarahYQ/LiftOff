@@ -19,7 +19,7 @@ import ProfileCampaigns from './profile/campaigns';
 import CampaignContainer from './campaign/campaign_container';
 import StartCampaign from './campaign/start_campaign';
 import CreateCampaign from './campaign/create_campaign';
-
+import UpdateCampaign from './campaign/update_campaign';
 
 const App = () => (
 
@@ -36,6 +36,7 @@ const App = () => (
       <Route path='/profile/:userId' component={Profile}/>
       <Route path='/creator' component={StartCampaign}/>
       <Route path='/create-campaign' component={CreateCampaign} />
+      <Route path='/update-campaign/:campaignId' component={UpdateCampaign} />
       <Route path='/' component={Home}/>
       <Redirect to='/'/>
   </Switch>

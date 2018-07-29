@@ -27,6 +27,11 @@
       font-weight: bold;
       border-bottom: 3px solid #EB1478;
     }
+    .profile-campaign-btn:hover {
+      color: #EB1478;
+      font-weight: bold;
+      border-bottom: 3px solid #EB1478;
+    }
     .btn-pink {
       color: #EB1478;
       font-weight: bold;
@@ -122,10 +127,13 @@ profile-social-icons {
   font-weight: bold;
 }
 
-
-.profile-campaign-items {
+.profile-camp-index-items {
+  display: flex;
+  justify-content: space-between;
   border-top: 1px solid #dddddd;
   padding-top: 10px;
+}
+.profile-campaign-items {
   display: flex;
   justify-content: flex-start;
   .profile-camp-photo {

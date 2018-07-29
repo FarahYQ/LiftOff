@@ -49,6 +49,7 @@ class HomeSlider extends React.Component {
           <button className="right-slider-arrow" onClick={this.renderNewImg((idx+1)%5).bind(this)}>
             <i className="fas fa-chevron-circle-right"></i>
           </button>
+          <div className="camp-num">{idx+1}/5</div>
           <div></div>
         </div>
         </div>

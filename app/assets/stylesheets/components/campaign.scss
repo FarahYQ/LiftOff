@@ -41,8 +41,9 @@
         padding-bottom: 0px;
       }
       .owner-link {
-        font-size: 13px;
+        font-size: 14px;
         font-weight: bold;
+        text-decoration: underline;
         // padding-bottom: 20px;
       }
       .owner-link:hover {
@@ -138,16 +139,74 @@
           padding-left: 10px;
           padding-right: 10px;
           padding-top: 30px;
+          padding-bottom: 10px;
           display: flex;
           justify-content: space-between;
           color: grey;
           border-bottom: 1px solid #dddddd;
+          font-weight: bold;
+          font-size: 13px;
+          
+          .story:hover {
+            color: #EB1478;
+            border-bottom: 1px solid #EB1478;
+          }
+          .updates:hover {
+            color: #EB1478;
+            border-bottom: 1px solid #EB1478;
+          }
+          .comments:hover {
+            color: #EB1478;
+            border-bottom: 1px solid #EB1478;
+          }
+          .backers:hover {
+            color: #EB1478;
+            border-bottom: 1px solid #EB1478;
+          }
+          .camp-pink {
+            color: #EB1478;
+            border-bottom: 1px solid #EB1478;
+          }
         }
         .campaign-sp-large, .more-words {
           width: 100%;
           padding-top: 15px;
         }
+      
+      }
 
+      .campaign-backers-items {
+        border-top: 1px solid #dddddd;
+        padding-top: 10px;
+        display: flex;
+        justify-content: space-between;
+        .camp-backer-photo {
+          .width: 200px;
+            .thumb {
+              width: 200px;
+              object-fit: cover;
+            }
+        }
+        .camp-backer-details {
+          padding-left: 20px;
+          padding-right: 50px;
+          .profile-camp-titles {
+            font-size: 25px;
+          }
+          .profile-campaign-owner {
+            display: flex;
+            justify-content: flex-start;
+            .profile-camp-owner-name {
+              font-weight: bold;
+              color: #EB1478;
+              padding-left: 5px;
+            }
+          }
+          .profile-camp-sd {
+            color: grey;
+            font-size: 16px;
+          }
+        }
       }
       .q4 {
         width: 30vw;

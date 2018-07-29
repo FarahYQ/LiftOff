@@ -14,3 +14,11 @@ json.contributions do
     end
   end
 end
+
+json.users do
+  @campaign.contributions.each do |contribution|
+    json.set! contribution.user.id do 
+      json.extract! contribution.user, :id, :first_name, :last_name, :email, :photo 
+    end
+  end
+end

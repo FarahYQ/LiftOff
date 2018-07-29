@@ -6,7 +6,6 @@ import SignupFormContainer from '../session_form/signup_form_container';
 import ContributeFormContainer from '../contribution/contribute_form';
 
 const Modal = ({modal, closeModal, campaignId}) => {
-  console.log(`whats upppp ${campaignId}`);
   if (!modal) {
     return null;
   }

@@ -2,11 +2,16 @@ import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import Modal from '../modal/modal';
 import { openModal, closeModal } from '../../actions/modal_actions';
+import CampaignBackersList from './backers';
 
 class Campaign extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      displayedComponent: "story"
+    };
     this.openContributionModal = this.openContributionModal.bind(this);
+    this.showComponent = this.showComponent.bind(this);
   }
 
   componentDidMount() {
@@ -23,6 +28,30 @@ class Campaign extends React.Component {
       this.props.fetchCampaign(nextProps.match.params.campaignId)
     }
   }
+
+  showComponent(componentName) {
+    this.setState({displayedComponent: componentName});
+  }
+
+  showButtons() {
+    let classStory;
+    let classComments;
+    let classBackers;
+    if (this.state.displayedComponent === "story") {
+      [classStory, classComments, classBackers] = ["story camp-pink", "comments", "backers"];
+    } else if (this.state.displayedComponent === "comments") {
+      [classStory, classComments, classBackers] = ["story", "comments camp-pink", "backers"];
+    } else {
+      [classStory, classComments, classBackers] = ["story", "comments", "backers camp-pink"];
+    }
+    return (
+      <div className="campaign-extras">
+        <button className={classStory} onClick={() => this.showComponent("story")}>STORY</button>
+        <button className={classComments}>COMMENTS</button>
+        <button className={classBackers} onClick={() => this.showComponent("backers")}>{`BACKERS (${this.props.campaign.backers_count})`}</button>
+      </div>
+    )
+    }
 
   openContributionModal(e) {
     e.preventDefault();
@@ -49,6 +78,16 @@ class Campaign extends React.Component {
       funded = camp.percent_funded;
     } else {
       funded = 100;
+    }
+    const storyComponent = (
+      <div>
+        <div><img className="campaign-sp-large" src={camp.small_photo_url}/></div>
+        <div className="more-words">{camp.long_description}</div>
+      </div>
+    )
+    const components = {
+      "story": storyComponent,
+      "backers": <CampaignBackersList contributions={this.props.contributions}/>
     }
     return (
       <div className="campaign-main">
@@ -109,15 +148,8 @@ class Campaign extends React.Component {
                   <div className="campaign-stage">PRODUCTION STAGE</div>
                 </div>
               </div>
-              <div className="campaign-extras">
-                <h5 className="story">STORY</h5>
-                <h5 className="updates">UPDATES</h5>
-                <h5 className="comments">COMMENTS</h5>
-                <h5 className="backers">BACKERS</h5>
-              </div>
-              <div><img className="campaign-sp-large" src={camp.small_photo_url}/></div>
-              <div className="more-words">{camp.long_description}</div>
-
+              {this.showButtons()}
+              <div className="campaign-sub">{components[this.state.displayedComponent]}</div>
             </div>
           </div>
 
