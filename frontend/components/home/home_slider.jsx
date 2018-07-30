@@ -21,14 +21,11 @@ class HomeSlider extends React.Component {
   }
 
   render() {
-    console.log(this.state)
     let idx = this.state.photoIdx;
     const camps = this.props.camps;
     if (!camps) {
       return <div>loading...</div>
     }
-    console.log(camps)
-    console.log(camps[idx].main_photo_url)
 
     return (
       <div className="slider">
@@ -38,8 +35,7 @@ class HomeSlider extends React.Component {
         <div className="featured-box">
           <div className="featured">Featured</div>
           <p className="featured-text">
-            Laboriosam excepturi possimus aliquam dolores nesciunt consequatur
-            voluptatem. Fugit quam ducimus non.
+            {camps[idx].short_description}
           </p>
           <Link className="slider-see-campaign" to={`/campaigns/${camps[idx].id}`}>SEE CAMPAIGN</Link>
         <div className="slider-arrows">

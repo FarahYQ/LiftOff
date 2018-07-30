@@ -28,8 +28,8 @@
 
  .nav-session-btn * {
    font-weight: bold;
-   line-height: 70px;
-   height: 70px;
+   line-height: 40px;
+   height: 40px;
  }
 
 .nav-bar * {
@@ -42,6 +42,21 @@
  padding: 10px;
  font-weight: bold;
 }
+.start-campaign-link {
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  background-color: #E51075;
+  color: white;
+  font-size: 15px;
+  // margin-left: 180px;
+  // margin-top: 10px;
+  // margin-bottom: 10px;
+  line-height: 35px;
+  text-align: center;
+  height: 35px;
+ }
 .logo {
   color: #EB1478;
   font-family: Passion One;

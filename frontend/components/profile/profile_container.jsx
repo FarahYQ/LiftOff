@@ -8,7 +8,8 @@ const mapStateToProps = ( {session, entities: {users, campaigns}}, ownProps) => 
   const camps = selectCampaignsFromUser(campaigns, userId);
   return {
     user: users[userId],
-    campaigns: camps
+    campaigns: camps,
+    currentUser: session
   };
 };
 

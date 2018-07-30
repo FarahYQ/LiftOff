@@ -34,9 +34,9 @@ export const clearCampaignErrors = ()=> ({
   type: CLEAR_CAMPAIGN_ERRORS
 });
 
-export const remove_campaign = campaignId => ({
+export const remove_campaign = payload => ({
   type: REMOVE_CAMPAIGN,
-  campaignId
+  payload
 })
 
 export const start_campaign = current_info => ({

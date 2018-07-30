@@ -1,5 +1,6 @@
 import React from 'react';
 import { makeCampaign } from '../../actions/campaign_actions';
+import { openModal } from '../../actions/modal_actions';
 import { connect  } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import merge from 'lodash/merge';
@@ -24,6 +25,9 @@ class CreateCampaign extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    if (!this.props.currentUser) {
+      return this.props.login();
+    }
     this.props.makeCamp(this.state).then( payload => {
       this.props.history.push(`/campaigns/${Object.keys(payload.payload.campaign)[0]}`);
     }
@@ -39,7 +43,7 @@ renderErrors() {
   // console.log(`${errs}================`)
   // return (
   //   <ul>
-  //     {errs.map((error, i) => (
+  //     {this.props.errors.map((error, i) => (
   //       <li key={`campaign-error-${i}`}>
   //         { error }
   //       </li>
@@ -81,7 +85,7 @@ renderErrors() {
               type="value" value={this.state.long_description} onChange={this.update('long_description')}/>
             <div className="input-title">Campaign Duration</div>
             <div className="input-tagline">How many days will you be running your campaign for? You can run a campaign
-             for any number of days, with a 60 day duration maximum.</div>
+             for any number of days, with a 90 day duration maximum.</div>
            <input className="start-camp-duration"
               type="value" value={this.state.duration} onChange={this.update('duration')}/>
 
@@ -112,13 +116,15 @@ const mapStateToProps = state => {
   return {
     currentInfo: state.entities.campaignStart,
     ownerId: state.session.id,
-    errors: state.errors.campaign
+    errors: state.errors.campaign,
+    currentUser: state.session.id
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    makeCamp: campaign => dispatch(makeCampaign(campaign))
+    makeCamp: campaign => dispatch(makeCampaign(campaign)),
+    login: () => dispatch(openModal('login'))
   }
 }
 

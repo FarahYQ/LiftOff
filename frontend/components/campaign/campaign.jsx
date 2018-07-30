@@ -47,7 +47,7 @@ class Campaign extends React.Component {
     return (
       <div className="campaign-extras">
         <button className={classStory} onClick={() => this.showComponent("story")}>STORY</button>
-        <button className={classComments}>COMMENTS</button>
+    
         <button className={classBackers} onClick={() => this.showComponent("backers")}>{`BACKERS (${this.props.campaign.backers_count})`}</button>
       </div>
     )
@@ -58,15 +58,7 @@ class Campaign extends React.Component {
      if (!this.props.currentUser) {
       return this.props.login();
     }
-    console.log(`hellooooo ${this.props.backit()}`)
     return this.props.backit();
-    // let cont = {
-    //   amount: amt,
-    //   user_id: 110,
-    //   campaign_id: this.props.campaign.id,
-    //   visibility: 'public'
-    // };
-    // return (e) => (this.props.addContribution(cont)).then(() => this.props.fetchCampaign(this.props.campaign.id))
   }
   
 
@@ -87,7 +79,7 @@ class Campaign extends React.Component {
     )
     const components = {
       "story": storyComponent,
-      "backers": <CampaignBackersList contributions={this.props.contributions}/>
+      "backers": <CampaignBackersList backers={this.props.contributions}/>
     }
     return (
       <div className="campaign-main">
@@ -115,8 +107,8 @@ class Campaign extends React.Component {
                 <div className="tile-bar-done" style={{width: `${funded}%`}}></div>
             </div>
             <div className="funded-deets">
-              <div className="percent"><span>{`${camp.percent_funded}% `}</span>{`of ${camp.goal} goal`}</div>
-              <div><span>50</span> days left</div>
+              <div className="percent"><span>{`${camp.percent_funded}% `}</span>{`of $${camp.goal_in_dollars} goal`}</div>
+              <div><span>{camp.duration}</span> days left</div>
             </div>
             <div className="backit-row">
               <button className="backit" onClick={(e) => this.openContributionModal(e)}>BACK IT</button>

@@ -11,11 +11,12 @@ export const selectCampaignsFromUser = (campaigns, userId) => {
 
 export const selectAllCampaigns = state => Object.values(state.entities.campaigns);
 
-export const selectCampaignBackers = ( contributions, campId ) => {
+export const selectCampaignBackers = ( contributions, users, campId ) => {
   let result = [];
   for ( let id in contributions ) {
-    if ( contributions[id].campaign_id === campId ) { 
-      result.push(contributions[id]) 
+    if ( contributions[id].campaign_id === campId ) {
+      let cont = contributions[id]
+      result.push([cont, users[cont.user_id]]) 
     }
     
   }

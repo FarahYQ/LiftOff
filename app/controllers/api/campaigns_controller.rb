@@ -24,7 +24,7 @@ class Api::CampaignsController < ApplicationController
     if @campaign.save
       render :show
     else
-      render json: @campaign.errors.full_messages, status: 401
+      render json: @campaign.errors.full_messages, status: 422
     end
   end
 

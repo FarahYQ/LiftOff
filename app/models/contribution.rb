@@ -18,4 +18,22 @@ class Contribution < ApplicationRecord
 
   belongs_to :user
   belongs_to :campaign
+
+  def amount_to_dollars()
+    num_to_dollars(self.amount)
+  end
+
+  def num_to_dollars(num)
+    num = num.to_i
+    res = []
+    while num > 0 
+      sub_num = (num % 1000).to_s
+      sub_num = "0" + sub_num if sub_num.length < 3
+      res.unshift(sub_num)
+      num /= 1000
+    end
+    res = res.join(",") + ".00"
+    res = res[1..-1] if res[0] === "0"
+    res
+  end
 end

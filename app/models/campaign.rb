@@ -19,6 +19,8 @@ class Campaign < ApplicationRecord
   validates :title, :short_description, :long_description, :goal, presence: true
   validates :duration, :main_photo_url, :small_photo_url, :owner_id, presence: true
   validates :current_sum, :start_date, presence: true
+  validates :goal, numericality: { greater_than: 499 }
+  validates :duration, numericality: { less_than: 91 }
 
   belongs_to :owner,
   foreign_key: :owner_id,
@@ -46,5 +48,22 @@ class Campaign < ApplicationRecord
     self.owner.campaigns.length
   end
 
+  def goal_to_dollars
+    num_to_dollars(self.goal)
+  end
+
+  def num_to_dollars(num)
+    num = num.to_i
+    res = []
+    while num > 0 
+      sub_num = (num % 1000).to_s
+      sub_num = "0" + sub_num if sub_num.length < 3
+      res.unshift(sub_num)
+      num /= 1000
+    end
+    res = res.join(",") + ".00"
+    res = res[1..-1] if res[0] === "0"
+    res
+  end
 
 end

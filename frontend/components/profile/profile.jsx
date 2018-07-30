@@ -53,7 +53,7 @@ class Profile extends React.Component {
 
     const components = {
       "ProfileDetail": <ProfileDetail user={user} campaigns={this.props.campaigns}/>,
-    "Campaigns": <Campaigns campaigns={this.props.campaigns} user={user}/>
+    "Campaigns": <Campaigns campaigns={this.props.campaigns} user={user} currentUser={this.props.currentUser.id}/>
     }
 
     return (

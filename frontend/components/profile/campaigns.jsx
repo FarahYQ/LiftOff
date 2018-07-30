@@ -13,7 +13,7 @@ class Campaigns extends React.Component{
         <ul className="profile-hosted-campaigns">
           {this.props.campaigns.map( campaign => (
             <div className="profile-campaign-item">
-              <CampaignIndexItem key={campaign.id}campaign={campaign} />
+              <CampaignIndexItem key={campaign.id} campaign={campaign} currentUser={this.props.currentUser}/>
             </div>
           ))}
         </ul>

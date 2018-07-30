@@ -19,7 +19,7 @@ const campaignsReducer = (state = {}, action) => {
       return merge({}, state, action.payload.campaign)
     case REMOVE_CAMPAIGN:
       let newState = merge({}, state);
-      delete newState[action.campaignId];
+      delete newState[Object.keys(action.payload.campaign)[0]];
       return newState;
     case RECEIVE_CAMPAIGN_ERRORS:
     default:

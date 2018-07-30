@@ -19,7 +19,7 @@ class StartCampaign extends React.Component{
   }
 
   isValid(){
-    if (this.state.goal < 500) return false;
+    if (this.state.goal < 500 || this.state.title.length > 50) return false;
     return true;
   }
 
@@ -54,20 +54,12 @@ class StartCampaign extends React.Component{
             <div className="subtext">50 Characters Maximum</div>
           </div>
 
-    <button disabled={!active} className={"camp-start-btn" + (active ? "" : " disabled-button")}>CREATE MY CAMPAIGN</button>
+    <button disabled={!active} className={"camp-start-btn" + (active ? "" : " disabled-button")}>START MY CAMPAIGN</button>
         </form>
       </div>
     );
   }
 }
-
-// export default CreateCampaign;
-// const mapStateToProps = (state, ownProps) =>{
-//   return(
-//     {
-//     }
-//   );
-// };
 
 const mapDispatchToProps = (dispatch) => {
   return(

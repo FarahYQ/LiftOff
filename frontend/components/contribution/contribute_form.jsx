@@ -22,11 +22,11 @@ class MakeContribution extends React.Component {
 
   handleContribution(e) {
     let campId = this.props.campId;
-    console.log(`hellllooooooooooooooo ${campId}`);
+    let userId = this.props.currentUserId;
     e.preventDefault();
     let cont = {
       amount: this.state.amount,
-      user_id: 110,
+      user_id: userId,
       campaign_id: campId,
       visibility: 'public' 
     };
@@ -36,7 +36,6 @@ class MakeContribution extends React.Component {
   }    
 
   renderErrors() {
-      console.log(`============= ${this.props.errors.responseJSON}`);
       if (this.props.errors.responseJSON) {
         return(
             <ul>
@@ -74,9 +73,10 @@ class MakeContribution extends React.Component {
   }
 }
 
-const mapStateToProps = ({ errors }) => {
+const mapStateToProps = ({ errors, session }) => {
     return {
-      errors: errors.contribution
+      errors: errors.contribution,
+      currentUserId: session.id
     }
   }
 

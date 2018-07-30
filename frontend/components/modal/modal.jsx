@@ -4,8 +4,9 @@ import { connect } from 'react-redux';
 import LoginFormContainer from '../session_form/login_form_container';
 import SignupFormContainer from '../session_form/signup_form_container';
 import ContributeFormContainer from '../contribution/contribute_form';
+import DeleteCampaignContainer from '../campaign/delete_campaign_form';
 
-const Modal = ({modal, closeModal, campaignId}) => {
+const Modal = ({modal, closeModal, campaignId, campaignToDelete}) => {
   if (!modal) {
     return null;
   }
@@ -19,6 +20,9 @@ const Modal = ({modal, closeModal, campaignId}) => {
       break;
     case 'contribute':
       component = <ContributeFormContainer campId={campaignId}/>
+      break;
+    case 'deleteCamp':
+      component = <DeleteCampaignContainer camp={campaignToDelete}/>
       break;
     default:
       return null;

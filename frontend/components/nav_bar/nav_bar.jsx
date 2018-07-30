@@ -19,11 +19,11 @@ class NavBar extends React.Component{
         <nav className='nav-bar'>
           <div className="nav-left">
             <Link className="logo" to='/'>LIFTOFF</Link>
-            <a>Explore</a>
-            <a>What We Do</a>
+            <a href="https://github.com/FarahYQ/LiftOff" target="_blank">Git Repo</a>
+            <a>Farah's Portfolio</a>
           </div>
           <div className="nav-right">
-            <Link to={'/creator'}>Start a Campaign</Link>
+            <Link className="start-campaign-link" to={'/creator'}>Start a Campaign</Link>
             {this.props.login}
             <br/>
             {this.props.signup}
@@ -35,11 +35,11 @@ class NavBar extends React.Component{
         <nav className="nav-bar">
           <div className="nav-left">
             <Link className="logo" to='/'>LIFTOFF</Link>
-            <a>Explore</a>
-            <a>What We Do</a>
+            <a href="https://github.com/FarahYQ/LiftOff" target="_blank">Git Repo</a>
+            <a>Farah's Portfolio</a>
           </div>
           <div className="nav-right">
-            <Link to={'/creator'}>Start a Campaign</Link>
+            <Link className="start-campaign-link" to={'/creator'}>Start a Campaign</Link>
             <Link className='login-header' to={`/profile/${this.props.currentUser.id}`}>
               {this.props.currentUser.first_name} {this.props.currentUser.last_name}
             </Link>

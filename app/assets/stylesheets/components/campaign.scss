@@ -181,10 +181,11 @@
         display: flex;
         justify-content: space-between;
         .camp-backer-photo {
-          .width: 200px;
-            .thumb {
-              width: 200px;
-              object-fit: cover;
+          
+            .backer-thumb {
+              width: 100px;
+              height: 100px;
+              object-fit: contain;
             }
         }
         .camp-backer-details {
