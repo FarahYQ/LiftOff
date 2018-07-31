@@ -20,7 +20,7 @@ class Campaign < ApplicationRecord
   validates :duration, :main_photo_url, :small_photo_url, :owner_id, presence: true
   validates :current_sum, :start_date, presence: true
   validates :goal, numericality: { greater_than: 499 }
-  validates :duration, numericality: { less_than: 91 }
+  validates :duration, numericality: { less_than: 181 }
 
   belongs_to :owner,
   foreign_key: :owner_id,

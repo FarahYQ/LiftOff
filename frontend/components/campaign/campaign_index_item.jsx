@@ -8,7 +8,7 @@ const CampaignIndexItem = ( { campaign }) => {
   } else {
     funded = 100;
   }
-  
+  // <div className="heart"><i className="far fa-heart" style={{color:"grey"}}></i></div>
   return (
     <div>
       <li className="camp-index-item">
@@ -18,7 +18,7 @@ const CampaignIndexItem = ( { campaign }) => {
             <div className="tile-details">
               <div className="f_and_heart">
                 <div className="f-type">Funding</div>
-                <div className="heart"><i className="far fa-heart" style={{color:"grey"}}></i></div>
+                
               </div>
               <div className="tile-info">
                 <p className="tile-title">{campaign.title}</p>

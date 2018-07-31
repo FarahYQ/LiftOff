@@ -20,7 +20,7 @@ class NavBar extends React.Component{
           <div className="nav-left">
             <Link className="logo" to='/'>LIFTOFF</Link>
             <a href="https://github.com/FarahYQ/LiftOff" target="_blank">Git Repo</a>
-            <a>Farah's Portfolio</a>
+            <a href="https://farahyq.github.io/FarahYQPortfolio/" target="_blank">Farah's Portfolio</a>
           </div>
           <div className="nav-right">
             <Link className="start-campaign-link" to={'/creator'}>Start a Campaign</Link>
@@ -36,7 +36,7 @@ class NavBar extends React.Component{
           <div className="nav-left">
             <Link className="logo" to='/'>LIFTOFF</Link>
             <a href="https://github.com/FarahYQ/LiftOff" target="_blank">Git Repo</a>
-            <a>Farah's Portfolio</a>
+            <a href="https://farahyq.github.io/FarahYQPortfolio/" target="_blank">Farah's Portfolio</a>
           </div>
           <div className="nav-right">
             <Link className="start-campaign-link" to={'/creator'}>Start a Campaign</Link>

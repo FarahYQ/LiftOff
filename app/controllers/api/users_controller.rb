@@ -2,6 +2,16 @@ class Api::UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    profile_pics = [
+    "https://s3-us-west-1.amazonaws.com/liftoff-go-photos/profile-pics/profile1.jpg",
+    "https://s3-us-west-1.amazonaws.com/liftoff-go-photos/profile-pics/profile2.jpg",
+    "https://s3-us-west-1.amazonaws.com/liftoff-go-photos/profile-pics/profile3.jpg",
+    "https://s3-us-west-1.amazonaws.com/liftoff-go-photos/profile-pics/profile4.jpg",
+    "https://s3-us-west-1.amazonaws.com/liftoff-go-photos/profile-pics/profile5.jpg",
+    "https://s3-us-west-1.amazonaws.com/liftoff-go-photos/profile-pics/profile6.jpg",
+    "https://s3-us-west-1.amazonaws.com/liftoff-go-photos/profile-pics/profile7.jpg",
+    ]
+    @user.photo = profile_pics[rand(0..6)]
     if @user.save
       login(@user)
       render "api/users/show"

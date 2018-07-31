@@ -81,6 +81,7 @@ class Campaign extends React.Component {
       "story": storyComponent,
       "backers": <CampaignBackersList backers={this.props.contributions}/>
     }
+    // <div className="heart"><i className="far fa-heart"></i></div>
     return (
       <div className="campaign-main">
         <div className="q1-q2">
@@ -113,7 +114,7 @@ class Campaign extends React.Component {
             <div className="backit-row">
               <button className="backit" onClick={(e) => this.openContributionModal(e)}>BACK IT</button>
               <div className="icons">
-                <div className="heart"><i className="far fa-heart"></i></div>
+                
                 <div><i className="fab fa-facebook-f"></i></div>
                 <div><i className="fab fa-twitter"></i></div>
                 <div><i className="fas fa-link"></i></div>

@@ -38,7 +38,7 @@ end
 # Seed campagins table
 Campaign.destroy_all
 campaign_photos = [
-  "https://s3-us-west-1.amazonaws.com/liftoff-go-photos/campaign-pics/campaign_game.jpg",
+  "https://s3-us-west-1.amazonaws.com/liftoff-go-photos/campaign-pics/campaigns_game-small.jpg",
   "https://s3-us-west-1.amazonaws.com/liftoff-go-photos/campaign-pics/campaigns_game-small.jpg",
   "https://s3-us-west-1.amazonaws.com/liftoff-go-photos/campaign-pics/campaigns_tech4.jpg",
   "https://s3-us-west-1.amazonaws.com/liftoff-go-photos/campaign-pics/campaigns_tech4-small.jpg",
@@ -60,8 +60,8 @@ user_count = User.all.length
 8.times do |j|
   project = {title: title = Faker::Lorem.words(2).join(' '),
     short_description: Faker::Lorem.sentence, long_description:
-    Faker::Lorem.paragraphs(rand(3..4)).join('\n'), goal: Faker::Number.between(50000, 200000),
-    duration: Faker::Number.between(30,180), main_photo_url: campaign_photos[(j+1)*2-2],
+    Faker::Lorem.paragraphs(rand(3..4)).join('\n'), goal: Faker::Number.between(1000, 20000),
+    duration: Faker::Number.between(30,90), main_photo_url: campaign_photos[(j+1)*2-2],
     small_photo_url: campaign_photos[(j+1)*2-1], owner_id: User.all[(user_count-1)%3].id,
     start_date: Faker::Date.between(1.year.ago, Date.today)}
   newCampaign = Campaign.create!(project)

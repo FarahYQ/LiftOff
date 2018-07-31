@@ -217,5 +217,34 @@
     }
 }
 
+.delete-campaign-box {
+  background-color: #f5f5f5;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  min-height: 100px;
+  width: 300px;
+  font-family: "Benton Sans","Helvetica","sans-serif";
+  border-radius: 1%;
+  padding: 20px;
+  
+  .delete-campaign-question {
+    align-content: center;
+    padding: 10px;
+  }
+
+  .delete-campaign-title {
+    font-weight: bold;
+  }
+
+  .delete-campaign-submit {
+    padding: 5px;
+    background-color: #E51075;
+    color: white;
+    font-size: 15px;
+    margin-left: 180px;
+  }
+}
+
 
 // #EB1478

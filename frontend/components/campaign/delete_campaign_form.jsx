@@ -23,9 +23,9 @@ class DeleteCampaign extends React.Component {
             )
         }
         return (
-        <div className="contribute-box">
-            <div>{`Are you sure you want to delete your '${this.props.camp.title}' campaign?`}</div>
-            <button className="contribute-submit" onClick={(e) => this.handleDelete(e)}>DELETE CAMPAIGN</button>
+        <div className="delete-campaign-box">
+            <div className="delete-campaign-question">Are you sure you want to delete your <strong className="delete-campaign-title">{this.props.camp.title}</strong> campaign?</div>
+            <button className="delete-campaign-submit" onClick={(e) => this.handleDelete(e)}>DELETE CAMPAIGN</button>
           </div>
         )
     }
