@@ -35,21 +35,6 @@ class CreateCampaign extends React.Component {
 }
 
 renderErrors() {
-  // if (this.props.errors === "Login to create a campaign") {
-  //   return this.props.errors
-  // }
-  // console.log(`${this.props.errors}----------`)
-  // let errs = JSON.parse(this.props.errors);
-  // console.log(`${errs}================`)
-  // return (
-  //   <ul>
-  //     {this.props.errors.map((error, i) => (
-  //       <li key={`campaign-error-${i}`}>
-  //         { error }
-  //       </li>
-  //     ))}
-  //   </ul>
-  // )
   return this.props.errors;
 }
 

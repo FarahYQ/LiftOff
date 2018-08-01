@@ -97,7 +97,6 @@ renderErrors() {
 
 
 const mapStateToProps = (state, ownProps) => {
-    console.log(`########### ${ownProps.match.params.campaignId}`);
   return {
     currentInfo: state.entities.campaignStart,
     ownerId: state.session.id,
