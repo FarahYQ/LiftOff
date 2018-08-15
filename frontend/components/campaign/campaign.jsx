@@ -16,6 +16,7 @@ class Campaign extends React.Component {
 
   componentDidMount() {
     const campaignid = this.props.match.params.campaignId;
+    window.scrollTo(0,0);
     this.props.fetchCampaign(campaignid).then(
       (payload) => {
         return this.props.requestUser(payload.payload.campaign[campaignid].owner_id);
@@ -66,6 +67,9 @@ class Campaign extends React.Component {
     const camp = this.props.campaign;
     const owner = this.props.owner;
     let funded;
+    if (!camp) {
+      return <div>loading...</div>
+    }
     if (camp.percent_funded < 100) {
       funded = camp.percent_funded;
     } else {
