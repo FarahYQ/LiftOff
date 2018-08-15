@@ -101,7 +101,7 @@ class Campaign extends React.Component {
             <Link className="owner-link" to={`/profile/${owner.id}`}>{owner.first_name} {owner.last_name}</Link>
             <div className="sum">
               <div className="sum-deets">
-                <span>{`$ ${camp.current_sum}`}</span>{` USD raised by ${camp.backers_count} backers`}
+                <span>{`$ ${camp.sum_in_dollars}`}</span>{` USD raised by ${camp.backers_count} backers`}
               </div>
             </div>
             <div className="tile-bar">

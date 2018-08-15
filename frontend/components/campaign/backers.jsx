@@ -15,7 +15,7 @@ const CampaignBackersList = ({ backers }) => {
                     <Link to={`/profile/${cont[0].user_id}`}>{`${cont[1].full_name}`}</Link>
                 </div>
                 <div className="camp-backer-details">
-                    <div className="profile-campaign-owner">{`$${cont[0].amount} USD`}</div>
+                    <div className="profile-campaign-owner">{`$${cont[0].dollars} USD`}</div>
                 </div>
             </li>
           ))}

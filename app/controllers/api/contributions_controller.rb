@@ -12,6 +12,7 @@ class Api::ContributionsController < ApplicationController
     #     UserReward.new(current_user.id)
     #   end
     # end
+
     if @contribution.save
       @campaign = @contribution.campaign
       @campaign.add_contribution(@contribution.amount)

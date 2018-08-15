@@ -5,6 +5,7 @@ json.campaign do
     json.percent_funded @campaign.percent_funded
     json.owner_total_campaigns @campaign.owner_total_campaigns
     json.goal_in_dollars @campaign.goal_to_dollars
+    json.sum_in_dollars @campaign.sum_to_dollars
   end
 end
 

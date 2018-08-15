@@ -25,15 +25,15 @@ class Contribution < ApplicationRecord
 
   def num_to_dollars(num)
     num = num.to_i
+    return "0.00" if num == 0
     res = []
     while num > 0 
       sub_num = (num % 1000).to_s
-      sub_num = "0" + sub_num if sub_num.length < 3
+      sub_num = "000" if sub_num == "0"
       res.unshift(sub_num)
       num /= 1000
     end
     res = res.join(",") + ".00"
-    res = res[1..-1] if res[0] === "0"
     res
   end
 end

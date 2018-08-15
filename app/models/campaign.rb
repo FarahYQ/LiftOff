@@ -48,21 +48,25 @@ class Campaign < ApplicationRecord
     self.owner.campaigns.length
   end
 
+  def sum_to_dollars
+    num_to_dollars(self.current_sum)
+  end
+
   def goal_to_dollars
     num_to_dollars(self.goal)
   end
 
   def num_to_dollars(num)
     num = num.to_i
+    return "0.00" if num == 0
     res = []
     while num > 0 
       sub_num = (num % 1000).to_s
-      sub_num = "0" + sub_num if sub_num.length < 3
+      sub_num = "000" if sub_num == "0"
       res.unshift(sub_num)
       num /= 1000
     end
     res = res.join(",") + ".00"
-    res = res[1..-1] if res[0] === "0"
     res
   end
 

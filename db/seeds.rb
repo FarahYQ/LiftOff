@@ -101,7 +101,7 @@ goal2 = 42000
 dur2 = 60
 mp_2 = campaign_photos[2]
 sp_2 = campaign_photos[3]
-owner_id2 = User.all[0].id
+owner_id2 = User.all[5].id
 project2 = {
   title: title2, short_description: sd_2, long_description: ld_2,
   goal: goal2, duration: dur2, main_photo_url: mp_2,

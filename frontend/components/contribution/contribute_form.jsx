@@ -24,8 +24,16 @@ class MakeContribution extends React.Component {
     let campId = this.props.campId;
     let userId = this.props.currentUserId;
     e.preventDefault();
+    let amount = this.state.amount;
+    if (amount.includes(",")) {
+      amount = amount.split(",").join("");
+    } 
+    if (amount.includes(".")) {
+      const periodIdx = amount.indexOf(".");
+      amount = amount.slice(0,periodIdx);
+    }
     let cont = {
-      amount: this.state.amount,
+      amount: amount,
       user_id: userId,
       campaign_id: campId,
       visibility: 'public' 
@@ -53,7 +61,7 @@ class MakeContribution extends React.Component {
         <form onSubmit={(e) => this.handleContribution(e)} className="contribute-form-box">
         <div className="cont-title">Make a Contribution</div>
         <div className="errors">{this.renderErrors()}</div>
-        <input type="amount"
+        <input type="value"
             placeholder="Donation Amount"
             value={this.state.amount}
             onChange={this.update('amount').bind(this)}
