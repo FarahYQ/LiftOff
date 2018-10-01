@@ -61,13 +61,15 @@ class Campaign < ApplicationRecord
     return "0.00" if num == 0
     res = []
     while num > 0 
-      sub_num = (num % 1000).to_s
-      sub_num = "000" if sub_num == "0"
-      res.unshift(sub_num)
-      num /= 1000
+        sub_num = (num % 1000).to_s
+        while sub_num.length < 3 && num > 999
+            sub_num = "0" + sub_num
+        end
+        res.unshift(sub_num)
+        num /= 1000
     end
     res = res.join(",") + ".00"
     res
-  end
+end
 
 end

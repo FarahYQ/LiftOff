@@ -38,7 +38,7 @@ const App = () => (
       <Route path='/create-campaign' component={CreateCampaign} />
       <Route path='/update-campaign/:campaignId' component={UpdateCampaign} />
       <Route path='/' component={Home}/>
-      <Redirect to='/'/>
+      
   </Switch>
 
   </div>
