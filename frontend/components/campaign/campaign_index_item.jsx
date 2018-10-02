@@ -26,7 +26,7 @@ const CampaignIndexItem = ( { campaign }) => {
               </div>
               <div className="tile-stats">
                 <div className="tile-stats-info">
-                  <div className="tile-current_sum"><strong className="num">${campaign.current_sum}</strong> USD raised</div>
+                  <div className="tile-current_sum"><strong className="num">${campaign.sum_in_dollars}</strong> USD raised</div>
                   <div className="tile-percent_funded">{`${campaign.percent_funded} %`}</div>
                 </div>
                 <div className="tile-bar">

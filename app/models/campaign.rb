@@ -15,6 +15,7 @@
 #  duration          :integer          not null
 #
 
+require 'byebug'
 class Campaign < ApplicationRecord
   validates :title, :short_description, :long_description, :goal, presence: true
   validates :duration, :main_photo_url, :small_photo_url, :owner_id, presence: true
@@ -37,7 +38,19 @@ class Campaign < ApplicationRecord
 
 
   def percent_funded
-    ((self.current_sum/goal)*100).round
+    percent = ((self.current_sum/goal)*100).round
+    return "0" if percent == 0
+    res = []
+    while percent > 0
+      sub_percent = (percent % 1000).to_s
+      while sub_percent.length < 3 && percent > 999
+        sub_percent = "0" + sub_percent
+      end
+      res.unshift(sub_percent)
+      percent /= 1000
+    end
+    res = res.join(",")
+    res
   end
 
   def backers_count
