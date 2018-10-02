@@ -15,7 +15,6 @@
 #  duration          :integer          not null
 #
 
-require 'byebug'
 class Campaign < ApplicationRecord
   validates :title, :short_description, :long_description, :goal, presence: true
   validates :duration, :main_photo_url, :small_photo_url, :owner_id, presence: true
